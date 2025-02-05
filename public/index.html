@@ -6,10 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio</title>
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
 <body>
     <header class="header">
+        <div>
+             <p class="nombre" style="font-size: 1.6rem;">Jose Malave</p>
+        </div>
         <nav class="nav-link">
             <a href="#sobre-mi">Sobre mi</a>
             <a href="#tecnologia">Tecnologia</a>
@@ -20,30 +31,43 @@
     <main>
         <div class="hero" id="sobre-mi">
             <div class="titulo">
-                <h1>Sobre Mi</h1>
+                <span class="material-symbols-outlined" style="font-size: 48px;">person</span>
+                <h1>Sobre Mi
+                </h1>
             </div>
             <div class="hero-perfil">
                 <div class="hero-image">
-                    <img class="imagen" src="img/perfil.png" alt="Hero Image">
                     <div class="buttons">
-                        <button> Cv</button>
-                        <button> Githud</button>
-                        <button> Correo</button>
+                        <button class="btn"> Cv</button>
+                        <div>
+                            <button class="btn btn-text"> 
+                                <img  class="imagen-icono" src="img/github.png" alt=""> 
+                            </button>
+                        </div>
+                        <button class="btn"> Correo</button>
                     </div>
+                    <img class="imagen" src="img/gato.jpg" alt="Hero Image">
+                    
                 </div>
                 <div class="hero-content">
                     <div class="boton2">
-                        <button> Jose Malave</button>
-                        <button> Guayas - Guayaquil</button>
+                        <span class=" nombre material-symbols-outlined" style="font-size: 28px;">home_pin</span>
+                        <p class="nombre">Ecuador</p>
+                        <p class="nombre">Guayas - Guayaquil</p>
                     </div>
-                    <h1 class="subtitulo">Desarrollador Web</h1>
-                    <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
+                    <h1 >Desarrollador Backend</h1>
+                    <p> Durante 3 años he programado con varias
+                        tecnologías y mi enfoque está orientado a la técnica, la lógica, la creatividad
+                        y la resolución de problemas de forma sencilla.<br> Quiero aprender 
+                        más de este apasionante mundo de la programación y seguir creciendo 
+                        profesionalmente.</p>
                 </div>
             </div>
         </div>
 
         <div class="tecnologia" id="tecnologia">
             <div class="titulo">
+                <span class="material-symbols-outlined" style="font-size: 48px;">laptop_chromebook</span>
                 <h1>Tecnologias</h1>
             </div>
             <div class="banner">
@@ -81,6 +105,8 @@
 
         <div class="experiencia" id="experiencia">
             <div class="titulo">
+                <span class="material-symbols-outlined" style="font-size: 48px;">engineering</span>
+
                 <h1>Experiencia</h1>
             </div>
             <div class="experiencia-contenido">
@@ -99,6 +125,8 @@
 
         <div class="proyectos" id="proyectos">
             <div class="titulo">
+                <span class="material-symbols-outlined" style="font-size: 48px;">work</span>
+
                 <h1>Proyectos</h1>
             </div>
             <div class="proyectos-contenido">
