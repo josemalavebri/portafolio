@@ -1,0 +1,169 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Para que el padding y el border no afecten al ancho del elemento */
+}
+
+html{
+    background-color: #474545;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:  'Cascadia code';
+    color: #fffcfc;
+    margin: 0;
+    padding: 0px 250px 0px 250px;
+    font-size: 1rem;
+}
+
+.header{
+    background-color: #2e2d2d;
+    color: #fff;
+    padding: 12px 0px 12px 0px;
+    border-radius: 10px;
+}
+
+.nav-link{
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    padding: 10px;
+}
+
+a :hover{
+    background-color: red;
+    color: yellow;
+    transform: scale(1.1);
+}
+
+
+.titulo{
+    text-align: center;
+    padding: 10px 0px 0px 0px;
+    font-size: 1.3rem;
+}
+.subtitulo{
+}
+
+.hero-perfil{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 20px;
+    gap:20px;
+}
+
+.hero-image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imagen{
+    width: auto;
+    border-radius: 10px;
+}
+
+.hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: start  ;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 5px;
+}
+
+.boton2{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.banner{
+    background-color: #2e2d2d;
+    border-radius: 10px;
+}
+
+.banner-tecnologias{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr  1fr;
+    gap: 40px;
+    text-align: center;
+}
+
+.tecnologia-item{
+    border: 1px solid #474545;
+    border-radius: 20px;
+    padding: 0px 10px 10px 10px;
+    background-color: #615e5e;
+}
+
+.imagenes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.imagenes img{ 
+    width: 50px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 4px;
+    margin: 5px;
+}
+
+button {
+    background-color: #f0f0f0; 
+    color: #333; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    padding: 10px 20px; 
+}
+
+.experiencia-contenido{
+    
+    background-color: #2e2d2d;
+    border-radius: 10px;
+
+    
+}
+
+.experiencia-item{
+    padding: 10px;
+    border-bottom: 1px solid #474545;
+}
+
+.proyectos{
+
+}
+
+.proyectos-contenido{
+
+    background-color: #2e2d2d;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 20px;
+}
+
+.proyecto-item{
+    margin: 10px;
+    border: 1px solid #474545;
+    border-radius: 20px;
+    padding: 0px 10px 10px 10px;
+    background-color: #615e5e;
+}
