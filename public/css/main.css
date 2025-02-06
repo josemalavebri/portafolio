@@ -28,7 +28,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     border-bottom: solid 1px #ece7e7;
 }
 
@@ -64,7 +64,7 @@ body {
 }
 main{
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 10px;    
 }
 
 
@@ -88,13 +88,13 @@ main{
 .hero-perfil{
     display: grid;
     grid-template-columns: 0.8fr 1.2fr;
-    padding: 50px 0px;
+    padding: 20px 0px;
 }
 
 .hero-image{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 10px;
+    margin-right:  50px ;
    
     
 }
@@ -215,7 +215,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2563eb; /* Azul Tailwind */
+    background-color: #2563eb; 
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: 600;
@@ -225,7 +225,7 @@ main{
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
     cursor: pointer;
     margin: 10px;
-    width: auto;
+    width: 100px;
     padding: 10px;
 }
 
@@ -241,7 +241,7 @@ main{
 
 .btnt:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5); /* Efecto de enfoque */
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5); 
 }
 
 .imagen-icono{
