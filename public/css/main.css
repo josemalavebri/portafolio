@@ -59,6 +59,7 @@ body {
     font-size: 30px;
     font-family: "Oswald", serif;
     margin-left: 40px;
+    color: #66FCF1;
 
 }
 main{
@@ -91,12 +92,24 @@ main{
 }
 
 .hero-image{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 10px;
+   
     
 }
+
+.hero-image-right{
+    display: flex;
+    flex-direction: column;
+}
+.hero-image-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .imagen{
     width: 200px;
     border-radius: 10px;
@@ -105,19 +118,12 @@ main{
 
 }
 
+
 .hero-content{
     display: flex;
     flex-direction: column;
     align-items: start  ;
 }
-.buttons{
-}
-
-
-
-
-
-
 
 
 
