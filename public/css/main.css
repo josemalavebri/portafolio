@@ -7,7 +7,7 @@
 }
 
 html{
-    background: linear-gradient(to right, #1a1a2e, #16213e);
+    background: linear-gradient(to right, #101424, #16213e);
     scroll-behavior: smooth;
 }
 
@@ -17,9 +17,8 @@ body {
     margin: 0;
     padding: 0 200px;
     font-size: 1rem;
+
 }
-
-
 
 .header{
     color: #f7e710;
@@ -29,14 +28,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    border-bottom: solid 1px #ece7e7;
+    border-bottom: solid 1px #fffffff6;
+    background: transparent;
 }
 
 .nav-link{
     display: flex;
     justify-content: center;
     gap: 3px;
-    
 }
 
 .nav-link a {
@@ -45,7 +44,7 @@ body {
     color: #C5C6C7;
     font-size: 1rem;
     padding: 2px 5px;
-    border-radius: 20px;
+    border-radius: 10px;
     transition: background 0.3s, transform 0.2s;
 }
 
@@ -59,12 +58,13 @@ body {
     font-size: 30px;
     font-family: "Oswald", serif;
     margin-left: 40px;
-    color: #66FCF1;
+    color: #ffffff;
 
 }
 main{
     padding: 20px;
     border-radius: 10px;    
+
 }
 
 
@@ -73,15 +73,15 @@ main{
     font-weight: 100;
     font-style: normal;
     text-align: center;
-    padding: 10px 0;
+    padding: 10px 0px;
     font-size: 1.4rem;
-    color: #66FCF1;
+    color: #9eb9f3;
     font-weight: bold;
     display: flex;
     justify-content: center;
-    box-shadow: 5px 7px 8px 5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 10px 10px 5px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
-    margin: 20px;
+    margin: 25px;
 }
 
 
@@ -92,17 +92,26 @@ main{
 }
 
 .hero-image{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-right:  50px ;
-   
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     
+}
+.hero-email{
+    margin: 0px 60px;
+
+}
+
+.hero-button{
+    display: flex;
+    justify-content: center;
 }
 
 .hero-image-right{
     display: flex;
     flex-direction: column;
 }
+
 .hero-image-left{
     display: flex;
     flex-direction: column;
@@ -113,36 +122,67 @@ main{
 .imagen{
     width: 200px;
     border-radius: 10px;
-    border: 3px solid #00adb5;
-    box-shadow:0px 3px 0px #000000;
-
+    box-shadow: 0px 0px 10px 1px #000000;
 }
-
 
 .hero-content{
-    display: flex;
-    flex-direction: column;
-    align-items: start  ;
+    display: grid;
+    grid-template-rows: 0.3fr auto;
 }
 
+.hero-content p{
+    font-size: 1.1rem;
+}
 
+.hero-city{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.hero-text{
+    margin-top: 10px;
+}
+
+.hero-text h1{
+    font-weight: 900;
+}
 
 .nombre{
-    font-size: 1rem;
-    font-weight: bold;
-    color: #f7e710;
-    background-color: #2e2d2d;
-    padding: 6px;
-    border-radius: 20px;
-    text-align: center;
     display: flex;
+    justify-content: center;
     align-items: center;
+    background-color: transparent; 
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 600;
+    border: solid 1px #2563eb;
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    cursor: pointer;
+    width: auto;
+    padding: 10px;
+}
+
+.nombre:hover {
+    background-color: #1d4ed8; 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
+}
+
+.nombre:active {
+    transform: scale(0.95); 
+}
+
+.nombre:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5); 
 }
 
 .boton2{
     display: flex;
-    justify-content: center;
-    gap: 5px;
+    justify-content: right;
 }
 
 .banner{
@@ -154,27 +194,66 @@ main{
 .banner-tecnologias{
     padding: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr  1fr;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 30px;
     text-align: center;
+}
+
+.banner-superior{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+}
+
+.bordeado{
+    border-radius: 5px;
+}
+
+.bordeado2{
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+}
+
+.banner-inferior{
+    text-align: center;    
 }
 
 .tecnologia-item {
     background-color: #222831;
-    padding: 15px;
+    padding: 6px;
     border-radius: 10px;
-    border: 1px solid #00adb5;
     color: #eeeeee;
+    transition: transform 0.3s ease-in-out;
 }
 
-.imagenes img {
-    width: 50px;
+.tecnologia-item:hover {
+    transform: scale(1.05);
+}
+
+.tecnologia-tarjeta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 3px;
+    
+}
+
+.imagenes  {
+    width: 100px;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #101424;
     padding: 4px;
-    margin: 5px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }
 
+.imagenes-content{
+    width: 82px;
+}
 
 
 .experiencia-contenido{
@@ -215,12 +294,13 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2563eb; 
+    background-color: transparent; 
+
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: 600;
-    border: none;
-    border-radius: 8px; /* Bordes redondeados */
+    border: solid 1px #2563eb;
+    border-radius: 8px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
     cursor: pointer;
@@ -228,6 +308,26 @@ main{
     width: 100px;
     padding: 10px;
 }
+
+.btnt2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; 
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 600;
+    border: solid 1px #2563eb;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    cursor: pointer;
+    margin: 10px;
+    width: auto;
+    padding: 10px;
+}
+
+
 
 .btnt:hover {
     background-color: #1d4ed8; /* Azul más oscuro */
@@ -244,6 +344,22 @@ main{
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5); 
 }
 
+
+
+.btnt2:hover {
+    background-color: #1d4ed8; /* Azul más oscuro */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1);
+}
+
+.btnt2:active {
+    transform: scale(0.95); /* Efecto de clic */
+}
+
+.btnt2:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5); 
+}
 .imagen-icono{
     width: 32px;
 }
