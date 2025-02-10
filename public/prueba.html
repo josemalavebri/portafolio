@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación al Desplazarse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px); 
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0); /* Sube a su posición normal */
+        }
+
+        .section {
+            height: 100vh; /* Secciones grandes para hacer scroll */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <h1 class="hidden">Bienvenido a mi página</h1>
+    </div>
+
+    <div class="section">
+        <p class="hidden">Este es un ejemplo de animación al hacer scroll.</p>
+    </div>
+
+    <div class="section">
+        <p class="hidden">A medida que te desplaces, los textos aparecerán y subirán.</p>
+    </div>
+
+    <div class="section">
+        <p class="hidden">Otro texto más abajo para probar el efecto.</p>
+    </div>
+
+    <div class="section">
+        <p class="hidden">Cuando subas, estos textos también aparecerán.</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll(".hidden");
+
+            function checkScroll() {
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 50 && rect.bottom > 50) { 
+                        el.classList.add("visible");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", checkScroll);
+            checkScroll(); // Verificar elementos visibles al cargar la página
+        });
+    </script>
+
+</body>
+</html>

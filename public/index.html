@@ -5,80 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio</title>
+    <!--Estilos-->
     <link rel="stylesheet" href="css/main.css">
-
+    <!--JavaScript-->
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
-
 <body>
-    <header class="header">
+    <header class="header ">
         <div>
-             <p class="nav-nombre" >Jose Malave</p>
+            <p class="nav-nombre efecto-borde hidden" >Jose Malave</p>
         </div>
-        <nav class="nav-link">
-            <a href="#sobre-mi">Sobre mi</a>
-            <a href="#tecnologia">Tecnologia</a>
-            <a href="#experiencia">Experiencia</a>
-            <a href="#proyectos">Proyectos</a>
+        <nav class="nav-link hidden">
+            <a class="efecto-borde" href="#sobre-mi">Sobre mi</a>
+            <a class="efecto-borde" href="#tecnologia">Tecnologia</a>
+            <a class="efecto-borde" href="#experiencia">Experiencia</a>
+            <a class="efecto-borde" href="#proyectos">Proyectos</a>
         </nav>
     </header>
     <main>
-        <div class="hero" id="sobre-mi">
-            <div class="titulo">
-                <span class="material-symbols-outlined" style="font-size: 48px;">person</span>
-                <h1> Sobre Mi </h1>
-            </div>
-            <div class="hero-perfil">
-                <div class="hero-image">
-                    <div class="hero-button">
-                        <div class="hero-image-left">
-                            <button class="btnt">
-                                <img  class="imagen-icono" src="img/perfil-personal.png" alt=""> 
-                                Cv
-                            </button>
-                                <button class="btnt btn-text"> 
-                                    <img  class="imagen-icono" src="img/github.png" alt=""> 
-                                    GitHub
-                                </button>
-                        </div>
-                        <div class="hero-image-right">
-                            <img class="imagen" src="img/gato.jpg" alt="Hero Image">
-                        </div>
+        <section class="hero hidden"> 
+            <div class="hero-text">
+                <h1>Hola! Soy <span class="text-color">José Malave Briones</span></h1>
+                <h3>Desarrollador Backend y estudiante de ingeniería en software</h3>
+                <p> Durante 3 años he programado con varias
+                    tecnologías y mi enfoque está orientado a la técnica, la lógica, la creatividad
+                    y la resolución de problemas de forma sencilla.<br> Quiero aprender 
+                    más de este apasionante mundo de la programación y seguir creciendo 
+                    profesionalmente.
+                </p>
+                <div class="hero-email">
+                    <div class="btnt2">
+                        <img class="imagen" src="img/email.png"  style="width: 32px; border:none; box-shadow: none; margin-right: 15px;" alt="Hero Image">
+                        <p>jose.malavebri@gmail.com</p>
                     </div>
-                    <div class="hero-email">
-                        <div class="btnt2">
-                            <img class="imagen" src="img/email.png"  style="width: 32px; border:none; box-shadow: none; margin-right: 15px;" alt="Hero Image">
-                            <p>jose.malavebri@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-content">
-                    <div class="hero-city">
-                        <div class="boton2">
-                            <p class="nombre">
-                                <span class="  material-symbols-outlined" style="font-size: 28px;">home_pin</span>
-                                Ecuador - Guayaquil 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="hero-text">
-                        <h1 >Desarrollador Backend</h1>
-                        <p> Durante 3 años he programado con varias
-                            tecnologías y mi enfoque está orientado a la técnica, la lógica, la creatividad
-                            y la resolución de problemas de forma sencilla.<br> Quiero aprender 
-                            más de este apasionante mundo de la programación y seguir creciendo 
-                            profesionalmente.</p>
-                    </div>
-                    
+                    <button class="btnt btn-text"> 
+                        <img  class="imagen-icono" src="img/github.png" alt=""> 
+                        GitHub
+                    </button>
+                    <button class="btnt">
+                        <img  class="imagen-icono" src="img/perfil-personal.png" alt=""> 
+                        Cv
+                    </button>
                 </div>
             </div>
-        </div>
+            <div class="hero-image hidden">
+                <div class="boton">
+                    <p class="nombre">
+                        <span class="material-symbols-outlined" style="font-size: 28px;">home_pin</span>
+                        Ecuador - Guayaquil 
+                    </p>
+                </div>
+                <div class="hero-image-right ">
+                    <img class="imagen" src="img/gato.jpg" alt="Hero Image">
+                </div>
+            </div>
 
-        <div class="tecnologia" id="tecnologia">
+            
+            
+        </section>
+
+     
+
+        <div class="tecnologia efecto-borde hidden" id="tecnologia ">
             <div class="titulo">
                 <span class="material-symbols-outlined" style="font-size: 48px;">laptop_chromebook</span>
                 <h1>Tecnologias</h1>
@@ -89,64 +81,65 @@
                         <div class="tecnologia-item">
                             <h2>Frontend</h2>
                             <div class="tecnologia-tarjeta">
-                                <div class="imagenes">
+                                <div class="imagenes-tarjeta">
                                     <div class="imagenes-content">
                                         <img class="imagenes-content" src="img/html.png" alt="">
-                                        HTML
                                     </div>
+                                    <p>HTML</p>
                                 </div>
-                                <div class="imagenes">
+                                <div class="imagenes-tarjeta">
                                     <div class="imagenes-content">
                                         <img class="imagenes-content" src="img/css.png" alt="">
-                                        CSS
                                     </div>
+                                    <p>CSS</p>
                                 </div>
-                                <div class="imagenes">
+                                <div class="imagenes-tarjeta">
                                     <div class="imagenes-content">
                                         <img  class="imagenes-content"  src="img/js.png" alt="">
-                                        JavaScript
                                     </div>
+                                    <p>JavaScript</p>
                                 </div>
-                                <div class="imagenes">
+                                <div class="imagenes-tarjeta">
                                     <div class="imagenes-content">
                                         <img class="imagenes-content"  src="img/ts.png" alt="">
-                                        TypeScript
                                     </div>
+                                    <p>TS</p>
                                 </div>
                             </div>
                         </div>
                         <div class="tecnologia-item">
                             <h2>Backend</h2>
                                 <div class="tecnologia-tarjeta">
-                                    <div class="imagenes">
+                                    <div class="imagenes-tarjeta">
                                         <div class="imagenes-content">
                                             <img class="imagenes-content" src="img/java.png" alt="">
-                                            Java
                                         </div>
+                                        <p>Java</p>
+
                                     </div>
-                                    <div class="imagenes">
+                                    <div class="imagenes-tarjeta">
                                         <div class="imagenes-content">
                                             <img class="imagenes-content" src="img/c.png" alt="">
-                                            C#
                                         </div>
+                                        <p>C#</p>
                                     </div>
-                                    <div class="imagenes">
+                                    <div class="imagenes-tarjeta">
                                         <div class="imagenes-content">
                                             <img  class="imagenes-content"  src="img/net.png" alt="">
-                                            Net Core
                                         </div>
+                                        <p>Net Core</p>
                                     </div>
-                                    <div class="imagenes">
+                                    <div class="imagenes-tarjeta">
                                         <div class="imagenes-content">
                                             <img class="imagenes-content  bordeado2"  src="img/asp.png" alt="">
-                                            Asp .Net Core
                                         </div>
+                                        <p>Asp .Net Core</p>
                                     </div>
-                                    <div class="imagenes">
+                                    <div class="imagenes-tarjeta">
                                         <div class="imagenes-content">
-                                            <img class="imagenes-content bordeado "  src="img/entity.png" alt="">
-                                            Entity F. Core
+                                            <img class="imagenes-content bordeado"  src="img/entity.png" alt="">
                                         </div>
+                                        <p>Entity F. Core</p>
                                     </div>
                                 </div>
                             </div   >
@@ -156,25 +149,23 @@
                         <div class="tecnologia-item">
                             <h2>Otros</h2>
                             <div class="tecnologia-tarjeta">
-                                <div class="imagenes">
+                                <div class="imagenes-tarjeta">
                                     <div class="imagenes-content">
                                         <img class="imagenes-content" src="img/github2.png" alt="">
-                                        GitHub
                                     </div>
+                                    <p>GitHud</p>
                                 </div>
-                                <div class="imagenes">
+                                <div class="imagenes-tarjeta">
                                     <div class="imagenes-content">
                                         <img class="imagenes-content" src="img/postman.png" alt="">
-                                        Postman
                                     </div>
-
+                                    <p>Postman</p>
                                 </div>
-                                <div class="imagenes">
+                                <div class="imagenes-tarjeta">
                                     <div class="imagenes-content">
-
                                         <img  class="imagenes-content bordeado2"  src="img/sqlserve.png" alt="">
-                                        Sql Server
                                     </div>
+                                    <p>Sql Server</p>
 
                                 </div>
                             </div>
@@ -183,16 +174,14 @@
                 </div>
             </div>
         </div>
-
-        <div class="experiencia" id="experiencia">
+        <section class="experiencia" id="experiencia">
             <div class="titulo">
-                <span class="material-symbols-outlined" style="font-size: 48px;">engineering</span>
-
+                <span class="material-symbols-outlined material-color" >engineering</span>
                 <h1>Experiencia</h1>
             </div>
             <div class="experiencia-contenido">
                 <div class="experiencia-item">
-                    <h2>Gerente Comercial</h2>
+                    <h2>Gestor de base de datos</h2>
                     <h3>Lugar</h3>
                     <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
                 </div>
@@ -202,9 +191,9 @@
                     <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="proyectos" id="proyectos">
+        <section class="proyectos" id="proyectos">
             <div class="titulo">
                 <span class="material-symbols-outlined" style="font-size: 48px;">work</span>
 
@@ -227,9 +216,10 @@
                     <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
                 </div>
             </div>
+        </section>
     </main>
     <footer>
     </footer>
+    <script src="js/main.js"></script>
 </body>
-
 </html>
