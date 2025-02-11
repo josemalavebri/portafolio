@@ -7,6 +7,8 @@
     <title>Portafolio</title>
     <!--Estilos-->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/modal.css">
+
     <!--JavaScript-->
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,19 +39,19 @@
                     más de este apasionante mundo de la programación y seguir creciendo 
                     profesionalmente.
                 </p>
-                <div class="hero-email">
-                    <div class="btnt2">
-                        <img class="imagen" src="img/email.png"  style="width: 32px; border:none; box-shadow: none; margin-right: 15px;" alt="Hero Image">
-                        <p>jose.malavebri@gmail.com</p>
-                    </div>
-                    <button class="btnt btn-text"> 
-                        <img  class="imagen-icono" src="img/github.png" alt=""> 
-                        GitHub
-                    </button>
-                    <button class="btnt">
-                        <img  class="imagen-icono" src="img/perfil-personal.png" alt=""> 
-                        Cv
-                    </button>
+                    <div class="hero-email">
+                        <div class="btnt">
+                            <img class="imagen" src="img/email.png"  style="width: 32px; border:none; box-shadow: none; margin-right: 15px;" alt="Hero Image">
+                            <p>jose.malavebri@gmail.com</p>
+                        </div>
+                        <button class="btnt btn-text"> 
+                            <img  class="imagen-icono" src="img/github.png" alt=""> 
+                            GitHub
+                        </button>
+                        <button class="btnt">
+                            <img  class="imagen-icono" src="img/perfil-personal.png" alt=""> 
+                            Cv
+                        </button>
                 </div>
             </div>
             <div class="hero-image hidden">
@@ -143,9 +145,7 @@
                                     </div>
                                 </div>
                             </div   >
-                    </div>
 
-                    <div class="banner-inferior">
                         <div class="tecnologia-item">
                             <h2>Otros</h2>
                             <div class="tecnologia-tarjeta">
@@ -170,25 +170,37 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
         <section class="experiencia" id="experiencia">
             <div class="titulo">
-                <span class="material-symbols-outlined material-color" >engineering</span>
+                <span class="material-symbols-outlined material-color" style="font-size: 38px;margin-right: 5px;"; >engineering</span>
                 <h1>Experiencia</h1>
             </div>
-            <div class="experiencia-contenido">
-                <div class="experiencia-item">
-                    <h2>Gestor de base de datos</h2>
-                    <h3>Lugar</h3>
-                    <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
-                </div>
-                <div class="experiencia-item">
-                    <h2>Gerente Comercial</h2>
-                    <h3>Lugar</h3>
-                    <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
+            <div class="banner"> 
+                <div class="experiencia-contenido">
+                    <div class="experiencia-item" id="mantenimiento">
+                        <h3>Noviembre 2022 - Agosto 2023</h3>
+
+                        <h1>Mantenimiento de app 3D </h1>
+                        <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles. 
+                            Esto es un texto de ejemplo y lo que quiero es tener un texto de ejemplo para que sea 
+                            de ejemplo
+                        </p>
+
+                        <button class="btnt hero__cta">Leer más</button>
+                    </div>
+                    <div class="experiencia-item" id="experiencia2">
+                        <h3>Noviembre 2022 - Agosto 2023</h3>
+
+                        <h1>Mantenimiento de app 3D </h1>
+                        <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles. 
+                            Esto es un texto de ejemplo y lo que quiero es tener un texto de ejemplo para que sea 
+                            de ejemplo
+                        </p>
+                        <button class="btnt hero__cta">Leer más</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -200,21 +212,52 @@
                 <h1>Proyectos</h1>
             </div>
             <div class="proyectos-contenido">
-                <div class="proyecto-item">
-                    <img src="img/proyecto.png" alt="">
-                    <h2>Proyecto 1</h2>
-                    <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
+                <div class="proyecto-banner">
+                    <div class="proyecto-card">
+                        <div class="card-image">
+                            <img src="img/css.png" alt="">
+                        </div>
+                        <div class="card-content">
+                            <h2 >Proyecto 1</h2>
+                            <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
+                            <div class="card-content">
+                                <img class="imagenes-content" src="img/github2.png" alt="">
+                                <img class="imagenes-content" src="img/postman.png" alt="">
+                                <img  class="imagenes-content bordeado2"  src="img/sqlserve.png" alt="">
+                                <img class="imagenes-content" src="img/java.png" alt="">
+
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="proyecto-card">
+                        <div class="card-image">
+                            <img src="img/proyecto.png" alt="">
+                        </div>
+                        <div class="card-content">
+                            <h2>Proyecto 2</h2>
+                            <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
+                        </div>
+                    </div>
+                    <div class="proyecto-card">
+                        <div class="card-image">
+                            <img src="img/proyecto.png" alt="">
+                        </div>
+                        <div class="card-content">
+                            <h2>Proyecto 3</h2>
+                            <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="proyecto-item">
-                    <img src="img/proyecto.png" alt="">
-                    <h2>Proyecto 2</h2>
-                    <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
-                </div>
-                <div class="proyecto-item">
-                    <img src="img/proyecto.png" alt="">
-                    <h2>Proyecto 3</h2>
-                    <p>Desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles.</p>
-                </div>
+            </div>
+        </section>
+
+        <section class="modal ">
+            <div class="modal__container">
+                <h2 class="modal__title"></h2>
+                <p class="modal__paragraph"></p>
+                <button class="modal__close">Cerrar</button>
             </div>
         </section>
     </main>
