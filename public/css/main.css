@@ -52,7 +52,6 @@ body {
 .efecto-borde{
     position: relative;
     transition: transform 0.2s, box-shadow 0.3s;
-    cursor: pointer;
     padding: 2px;
 }
 
@@ -72,6 +71,35 @@ body {
 .efecto-borde:hover::after{
     transform: scaleX(1);
 }
+
+.efecto-borde-section{
+
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.3s;
+    padding: 2px;
+    margin-top: 30px;
+}
+
+
+.efecto-borde-section::after{
+    content: "";
+    bottom: 0;
+    left: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    background-color: #3498db;
+    transform-origin: center;
+    transform: scaleX(0.5);
+    transition: transform 0.3s ease-in-out,background-color 0.3s ease-in-out;
+}
+
+.efecto-borde-section:hover::after{
+    transform: scaleX(1);
+}
+
 
 
 .nav-link a:active {
@@ -109,39 +137,25 @@ main{
     justify-content: center;
     align-items: center;
     font-weight: 600;
+    margin: 10px 0px
 }
 
+.titulo h1{
+    font-size: 2rem;
+
+}
 .tecnologia{
     position: relative;
-    font-weight: 600;
     transition: transform 0.2s ease-in-out;
 }
 
 
-.tecnologia::after{
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    position: absolute;
-    background-color: #3498db;
-    transform-origin: center;
-    transform: scaleX(0.5);
-    transition: transform 0.3s ease-in-out;
-}
 
-
-.tecnologia:hover::after{
-    transform: scaleX(1);
-}
 
 
 .hero{
     display: grid;
     grid-template-columns: 3fr 1fr ;
-    margin-top: 50px;
-    margin-bottom: 130px;
 }
 
 .hero-text{
@@ -155,7 +169,7 @@ main{
     line-height: 46px;
 }
 
-.hero h3{
+.hero h3{   
     font-size: 2rem;
     margin-bottom: 20px;
     line-height: 26px;
@@ -171,7 +185,7 @@ main{
 
 .hero-email{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     margin-top: 25px;
 }
 
@@ -208,9 +222,14 @@ main{
 }
 
 .imagen{
-    width: 200px;
+    width:100%;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px 1px #000000;
+    box-shadow: 0px 0px 10px 1px #8e87e4;
+    transition: transform 0.2s ease-in-out;
+}
+
+.imagen:hover{
+    transform: scale(1.05);
 }
 
 .hero-content{
@@ -381,20 +400,24 @@ main{
 
 .experiencia-item h1 {
     font-size: 1.6rem;
+    line-height: 29px;
+
 }
 
 .experiencia-item h3 {
-    color:#3b74ee;
+    color:#84a9f8;
     font-size: 0.8rem;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .experiencia-item p {
-    color:#ffffff;
+    color:#e2e2e2;
     font-size: 0.9rem;
     border-radius: 10px;
     padding: 10px 2px 10px 2px;
     margin:5px 0px;
+    line-height: 20px;
+
 }
 
 
@@ -453,14 +476,13 @@ main{
     background-color: transparent; 
     color: rgb(255, 255, 255);
     font-size: 16px;
-    font-weight: 600;
     border: solid 1px #2563eb;
     border-radius: 8px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
     cursor: pointer;
     margin: 10px;
-    width: 100%;
+    width:auto;
     padding: 10px;
 }
 
@@ -498,7 +520,6 @@ main{
     width: 32px;
 }
 
-
 /*ANIMACION*/
 .hidden {
     opacity: 0;
@@ -508,5 +529,49 @@ main{
 
 .visible {
     opacity: 1;
-    transform: translateY(0); /* Sube a su posición normal */
+    transform: translateY(0);
+}
+
+/*FORMACION*/
+.banner-formacion{
+    background-color: #3f5372;
+    border-radius: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 0.2fr 0.8fr;
+    margin: px;
+    margin: 40px 0px;
+    transition:transform 0.2s ease-in-out;
+
+}
+
+.banner-formacion:hover{
+    transform: scale(1.05);
+}
+
+
+.banner-izquierda{
+    text-align: center;
+    border-right: #212744 solid 3px;
+}
+
+.banner-derecha{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 15px;
+}
+
+.formacion-contenido{
+    background-color: #101424;
+    border-radius: 10px;
+    margin:5px 5px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.icono{
+    font-size: 48px !important;
+    margin-right: 5px;
 }
