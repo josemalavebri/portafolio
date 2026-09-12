@@ -1,0 +1,68 @@
+/* =========================================================
+   JERARQUÍA DE CAPAS DE FONDO
+   ========================================================= */
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 1. Capa de Estrellas (Encima del fondo del body, debajo de la textura) */
+.stars-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background-color: var(--color-primary-light);
+  border-radius: 50%;
+  animation: twinkle var(--duration) ease-in-out infinite;
+  animation-delay: var(--delay);
+  opacity: 0;
+}
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  50% {
+    opacity: var(--max-opacity);
+    transform: scale(1.2);
+    box-shadow:
+      0 0 8px var(--color-primary-light),
+      0 0 12px var(--color-primary);
+  }
+}
+
+/* 2. Capa de Textura de Ruido (Encima de las estrellas) */
+.page-texture {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.18;
+  mix-blend-mode: soft-light;
+}
+
+/* 3. Contenido de la página (Siempre por encima de todo el fondo) */
+body > *:not(.page-texture):not(.stars-container):not(#modal) {
+  position: relative;
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stars-container,
+  .page-texture {
+    display: none;
+  }
+}

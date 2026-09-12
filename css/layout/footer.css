@@ -1,0 +1,33 @@
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  margin-top: 6rem;
+
+  padding: 2rem 0;
+
+  border-top: 1px solid var(--color-border);
+}
+
+.footer p {
+  margin: 0;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--text-xs);
+}
+
+.footer-link {
+  color: var(--color-text-muted);
+
+  font-size: var(--text-xs);
+
+  text-decoration: none;
+
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--color-primary-light);
+}

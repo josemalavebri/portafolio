@@ -1,0 +1,70 @@
+:root {
+  /* ==============================
+     COLORES
+     ============================== */
+
+  --color-bg: #0b0f1a;
+  --color-bg-soft: #101624;
+
+  --color-surface: #141b2b;
+  --color-surface-hover: #192236;
+
+  --color-border: #252e40;
+  --color-border-hover: #3c4b68;
+
+  --color-text: #f1f5f9;
+  --color-text-soft: #c5ccd8;
+  --color-text-muted: #8993a5;
+
+  --color-primary: #2563eb;
+  --color-primary-light: #60a5fa;
+  --color-primary-dark: #1d4ed8;
+
+  --color-success: #4ade80;
+
+  /* ==============================
+     TIPOGRAFÍA
+     ============================== */
+
+  --font-heading: "Rajdhani", sans-serif;
+  --font-body: "Spline Sans", sans-serif;
+  --font-label: "Rajdhani", monospace;
+
+  --text-xs: 0.7rem;
+  --text-sm: 0.8rem;
+  --text-md: 0.95rem;
+  --text-lg: 1.1rem;
+  --text-xl: 1.35rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.5rem;
+
+  --line-tight: 1.2;
+  --line-normal: 1.5;
+  --line-relaxed: 1.7;
+
+  /* ==============================
+     BORDES
+     ============================== */
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+
+  /* ==============================
+     SOMBRAS
+     ============================== */
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.22);
+  --shadow-primary: 0 0 25px rgba(37, 99, 235, 0.22);
+
+  /* ==============================
+     TRANSICIONES
+     ============================== */
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}

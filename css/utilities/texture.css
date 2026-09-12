@@ -1,0 +1,29 @@
+/* =========================================================
+   PAGE TEXTURE
+   ========================================================= */
+
+.page-texture {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6; /* Súbela del 0.18 a 0.5 o 0.6 para validarlo */
+  mix-blend-mode: overlay; /* Prueba overlay en lugar de soft-light si el fondo es muy oscuro */
+}
+body {
+  position: relative;
+}
+
+body > *:not(.page-texture) {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-texture {
+    display: none;
+  }
+}

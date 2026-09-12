@@ -1,0 +1,155 @@
+/* =========================================================
+   PROYECTOS
+   ========================================================= */
+
+.project-grid {
+  padding: 0;
+
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.project-card {
+  height: 100%;
+
+  overflow: hidden;
+
+  background-color: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  transition:
+    border-color var(--transition-fast),
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal);
+}
+
+.project-card:hover {
+  border-color: var(--color-border-hover);
+
+  transform: translateY(-5px);
+
+  box-shadow: var(--shadow-md);
+}
+
+/* =========================================================
+   IMAGEN
+   ========================================================= */
+
+.project-image {
+  min-height: 170px;
+
+  padding: 1rem;
+
+  background-color: var(--color-bg-soft);
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-image img {
+  width: 100%;
+  max-width: 220px;
+  max-height: 145px;
+
+  object-fit: contain;
+
+  border-radius: var(--radius-sm);
+
+  transition: transform var(--transition-normal);
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.03);
+}
+
+/* =========================================================
+   CONTENIDO
+   ========================================================= */
+
+.project-content {
+  height: 100%;
+
+  padding: 1.5rem;
+}
+
+.project-heading {
+  margin-bottom: 0.75rem;
+}
+
+.project-label {
+  display: block;
+
+  margin-bottom: 0.25rem;
+
+  color: var(--color-primary-light);
+
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+
+  letter-spacing: 1.5px;
+}
+
+.project-content h3 {
+  margin: 0;
+
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+
+  line-height: 1.3;
+}
+
+.project-content p {
+  margin-bottom: 1.5rem;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--text-sm);
+  line-height: var(--line-relaxed);
+}
+
+/* =========================================================
+   TECNOLOGIAS
+   ========================================================= */
+
+.project-technologies {
+  margin-top: auto;
+}
+
+.technology-tag {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.25rem 0.5rem;
+
+  color: var(--color-text-muted);
+
+  background-color: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  font-size: 0.65rem;
+}
+
+.technology-tag img {
+  width: 16px;
+  height: 16px;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.project-actions {
+  margin-top: 1.5rem;
+}
+
+.project-actions .btn {
+  width: 100%;
+}
