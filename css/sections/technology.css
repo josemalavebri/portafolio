@@ -275,7 +275,6 @@
   font-size: 0.65rem;
   font-weight: 400;
 }
-
 @keyframes technology-toggle-hint {
   0%,
   100% {
@@ -298,7 +297,8 @@
 .technology-hint {
   position: absolute;
   top: 8px;
-  right: 16px;
+  left: 50%;
+  right: auto;
   z-index: 2;
 
   padding: 0.35rem 0.65rem;
@@ -311,7 +311,7 @@
   font-weight: 600;
 
   opacity: 0;
-  transform: translateY(8px);
+  transform: translate(-50%, 8px);
 
   pointer-events: none;
 
@@ -322,7 +322,8 @@
   content: "";
 
   position: absolute;
-  right: 14px;
+  left: 50%;
+  right: auto;
   bottom: -5px;
 
   width: 10px;
@@ -330,23 +331,23 @@
 
   background-color: var(--color-primary);
 
-  transform: rotate(45deg);
+  transform: translateX(-50%) rotate(45deg);
 }
 
 @keyframes technology-hint {
   0% {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translate(-50%, 8px);
   }
 
   15%,
   75% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, 0);
   }
 
   100% {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translate(-50%, -4px);
   }
 }
