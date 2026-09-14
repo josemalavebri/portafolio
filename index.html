@@ -10,6 +10,12 @@
     />
 
     <title>José Malave | Portafolio</title>
+    <link
+      rel="preload"
+      as="image"
+      href="./img/profile/profile.jpg"
+      fetchpriority="high"
+    />
 
     <link rel="icon" type="image/png" href="./img/technologies/" />
 
@@ -111,12 +117,17 @@
 
             <!-- IMAGEN -->
 
+            <!-- IMAGEN -->
             <div class="col-12 col-lg-5">
               <div class="hero-image-wrapper">
                 <img
                   src="./img/profile/profile.jpg"
                   class="hero-image img-fluid"
                   alt="Ilustración representativa del portafolio"
+                  width="400"
+                  height="400"
+                  fetchpriority="high"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -126,28 +137,18 @@
 
           <div class="hero-links">
             <div class="d-flex flex-wrap gap-2">
-              <a
-                class="social-link"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visitar perfil de GitHub"
-              >
-                <i class="fa-brands fa-github" aria-hidden="true"></i>
-
-                <span>GitHub</span>
-              </a>
+              <span class="social-link">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                <span>Guayaquil, Ecuador</span>
+              </span>
 
               <a
                 class="social-link"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Ver currículum vitae"
+                href="tel:+593988338901"
+                aria-label="Llamar al número de teléfono"
               >
-                <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
-
-                <span>CV</span>
+                <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                <span>+593 98 833 8901</span>
               </a>
 
               <a
@@ -156,8 +157,28 @@
                 aria-label="Enviar correo electrónico"
               >
                 <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-
                 <span>jose.malavebri@outlook.com</span>
+              </a>
+
+              <a
+                class="social-link"
+                href="https://github.com/josemalavebri"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visitar perfil de GitHub"
+              >
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                <span>GitHub</span>
+              </a>
+
+              <a
+                class="social-link"
+                href="files/jose_malave_curriculum.pdf"
+                download
+                aria-label="Descargar currículum vitae"
+              >
+                <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+                <span>CV</span>
               </a>
             </div>
           </div>
@@ -296,7 +317,11 @@
                   <div class="technology-list d-flex flex-column gap-3">
                     <!-- HTML -->
 
-                    <article class="technology-card">
+                    <article class="technology-card technology-card-hint">
+                      <span class="technology-hint" aria-hidden="true">
+                        Haz clic para ver más
+                      </span>
+
                       <button
                         type="button"
                         class="technology-header border-0 p-3 d-flex align-items-center gap-3"

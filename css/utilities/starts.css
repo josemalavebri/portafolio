@@ -7,7 +7,7 @@ body {
   overflow-x: hidden;
 }
 
-/* 1. Capa de Estrellas (Encima del fondo del body, debajo de la textura) */
+/* 1. Capa de Estrellas */
 .stars-container {
   position: fixed;
   top: 0;
@@ -27,6 +27,7 @@ body {
   animation-delay: var(--delay);
   opacity: 0;
 }
+
 @keyframes twinkle {
   0%,
   100% {
@@ -42,7 +43,7 @@ body {
   }
 }
 
-/* 2. Capa de Textura de Ruido (Encima de las estrellas) */
+/* 2. Capa de Textura de Ruido */
 .page-texture {
   position: fixed;
   inset: 0;
@@ -54,8 +55,11 @@ body {
   mix-blend-mode: soft-light;
 }
 
-/* 3. Contenido de la página (Siempre por encima de todo el fondo) */
-body > *:not(.page-texture):not(.stars-container):not(#modal) {
+/* 3. Contenido de la página */
+body
+  > *:not(.page-texture):not(.stars-container):not(#modal):not(
+    #modalExperiencia
+  ) {
   position: relative;
   z-index: 2;
 }
