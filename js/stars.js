@@ -1,11 +1,9 @@
 const initStars = () => {
-  console.log("✨ stars.js → initStars() ejecutado");
 
   const container = document.createElement("div");
   container.className = "stars-container";
   container.setAttribute("aria-hidden", "true");
 
-  // Estilos críticos forzados
   container.style.position = "fixed";
   container.style.top = "0";
   container.style.left = "0";
@@ -29,7 +27,6 @@ const initStars = () => {
     const duration = Math.random() * 4 + 2;
     const delay = Math.random() * 5;
 
-    // Reducido significativamente: ahora su brillo máximo será mucho más tenue (entre 10% y 35%)
     const maxOpacity = Math.random() * 0.25 + 0.1;
 
     star.style.left = `${posX}%`;
@@ -43,7 +40,6 @@ const initStars = () => {
     container.appendChild(star);
   }
 
-  console.log(`✨ ${starCount} estrellitas generadas correctamente`);
 };
 
 export default initStars;
