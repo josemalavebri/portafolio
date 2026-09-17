@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SGTS — Sistema de Gestión de Tickets de Soporte</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Tus estilos CSS personalizados -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">&lt;SGTS/&gt;</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#overview">Visión General</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#architecture">Arquitectura</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#patterns">Patrones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#security">Seguridad</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#persistence"
+                >Persistencia & Archivos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#frontend">Frontend & Pruebas</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="hero-section d-flex align-items-center">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7 text-center text-lg-start">
+            <div
+              class="d-flex flex-wrap gap-2 justify-content-center justify-content-lg-start mb-3"
+            >
+              <span class="badge custom-badge">.NET 10</span>
+              <span class="badge custom-badge">ASP.NET Core MVC & API</span>
+              <span class="badge custom-badge">Entity Framework Core 10</span>
+              <span class="badge custom-badge status-badge">En Desarrollo</span>
+            </div>
+            <h1 class="display-4 fw-bold mb-3">
+              Sistema de Gestión de Tickets de Soporte (SGTS)
+            </h1>
+            <p class="lead text-muted mb-4">
+              Aplicación web empresarial orientada al registro, seguimiento,
+              asignación y control de solicitudes de soporte técnico con
+              arquitectura en capas y separación estricta de responsabilidades.
+            </p>
+            <div
+              class="d-flex gap-3 justify-content-center justify-content-lg-start"
+            >
+              <a href="#architecture" class="btn custom-btn-primary"
+                >Ver Arquitectura</a
+              >
+              <a
+                href="https://github.com"
+                class="btn custom-btn-outline"
+                target="_blank"
+                >Repositorio GitHub</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-5 mt-4 mt-lg-0">
+            <div class="tech-stack-card p-4 rounded-4 shadow-sm">
+              <h3 class="h5 fw-bold mb-3">Pila Tecnológica Principal</h3>
+              <ul class="list-unstyled mb-0 text-muted small">
+                <li class="mb-2"><strong>Plataforma:</strong> .NET 10 / C#</li>
+                <li class="mb-2">
+                  <strong>Presentación:</strong> ASP.NET Core MVC, Razor Views,
+                  Web API
+                </li>
+                <li class="mb-2">
+                  <strong>Base de Datos:</strong> SQL Server con EF Core 10
+                </li>
+                <li class="mb-2">
+                  <strong>Seguridad:</strong> Cookie Auth (MVC) & JWT Bearer
+                  (API)
+                </li>
+                <li class="mb-0">
+                  <strong>Validación y Pruebas:</strong> FluentValidation,
+                  xUnit, Moq
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Sección: Visión General y Propósito -->
+      <section id="overview" class="py-5">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <h2 class="fw-bold">Propósito y Dominio Funcional</h2>
+              <div class="custom-divider mx-auto mt-2"></div>
+            </div>
+          </div>
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+              <h3 class="h4 fw-semibold mb-3">¿Qué resuelve SGTS?</h3>
+              <p class="text-muted">
+                SGTS centraliza la gestión operativa de mesas de ayuda
+                corporativas. Permite ciclo de vida completo de tickets:
+                creación, asignación a técnicos especializados, control de
+                estados e historiales de prioridad, comentarios de seguimiento y
+                gestión de archivos adjuntos asociados.
+              </p>
+              <p class="text-muted">
+                El sistema combina una interfaz web interactiva con endpoints de
+                API protegidos, organizando la lógica empresarial en componentes
+                independientes y testeables.
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <div class="p-4 bg-white border rounded-4 shadow-sm">
+                <h4 class="h5 fw-bold mb-3">Entidades del Dominio</h4>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge tech-badge">Ticket</span>
+                  <span class="badge tech-badge">Usuario</span>
+                  <span class="badge tech-badge">AsignaciónTicket</span>
+                  <span class="badge tech-badge">Categoría & Departamento</span>
+                  <span class="badge tech-badge">Prioridad & Estado</span>
+                  <span class="badge tech-badge">Comentarios & Adjuntos</span>
+                  <span class="badge tech-badge">Historiales</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: Arquitectura -->
+      <section id="architecture" class="py-5 bg-light border-top border-bottom">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <h2 class="fw-bold">Arquitectura de la Solución</h2>
+              <div class="custom-divider mx-auto mt-2"></div>
+              <p class="text-muted mt-2">
+                Arquitectura en capas (Layered Architecture) con separación
+                modular de responsabilidades.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-4 mb-5">
+            <div class="col-12">
+              <div class="code-box p-4 rounded-4 shadow-sm">
+                <pre class="mb-0 text-light"><code>Usuario 
+  ↓
+SGTS.Web (MVC / API Controllers / Middleware / Razor / JS / CSS)
+  ↓
+SGTS.Business (Servicios de aplicación, validaciones de negocio, AutoMapper)
+  ↓
+SGTS.Persistence ───→ SQL Server (EF Core 10, Repositorios, Configuraciones)
+  │
+  └───────────────→ SGTS.Infrastructure ───→ JWT / Password Hashing / File Storage</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                <h3 class="h5 fw-bold mb-2">SGTS.Web</h3>
+                <p class="text-muted small mb-0">
+                  Entrada HTTP, controladores MVC y de API, vistas Razor,
+                  middlewares de manejo de errores, filtros y recursos estáticos
+                  modulares.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                <h3 class="h5 fw-bold mb-2">SGTS.Business</h3>
+                <p class="text-muted small mb-0">
+                  Capas de servicio, reglas de negocio centralizadas mediante
+                  validadores específicos, mapeos con AutoMapper y gestión de
+                  identidad.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                <h3 class="h5 fw-bold mb-2">
+                  SGTS.Persistence & Infrastructure
+                </h3>
+                <p class="text-muted small mb-0">
+                  Acceso a datos con EF Core 10, migraciones, patrones de
+                  repositorio, hashing seguro de contraseñas y almacenamiento
+                  físico de archivos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: Patrones y Prácticas -->
+      <section id="patterns" class="py-5">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <h2 class="fw-bold">Patrones y Prácticas de Ingeniería</h2>
+              <div class="custom-divider mx-auto mt-2"></div>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <div class="challenge-item p-4 rounded-4 shadow-sm h-100">
+                <h3 class="h5 fw-bold mb-2">Repository & Service Layer</h3>
+                <p class="text-muted small mb-0">
+                  Encapsulamiento de datos mediante interfaces específicas y
+                  servicios coordinadores de lógica de aplicación.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="challenge-item p-4 rounded-4 shadow-sm h-100">
+                <h3 class="h5 fw-bold mb-2">Dependency Injection</h3>
+                <p class="text-muted small mb-0 modular-text">
+                  Registro modular por extensiones (`AddBusiness`, `AddData`,
+                  `AddInfrastructure`) con ciclos de vida controlados.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="challenge-item p-4 rounded-4 shadow-sm h-100">
+                <h3 class="h5 fw-bold mb-2">DTO & Data Mapper</h3>
+                <p class="text-muted small mb-0">
+                  Desacoplamiento estricto entre entidades de persistencia y
+                  contratos externos usando AutoMapper.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="challenge-item p-4 rounded-4 shadow-sm h-100">
+                <h3 class="h5 fw-bold mb-2">Soft Delete + Query Filter</h3>
+                <p class="text-muted small mb-0">
+                  Borrado lógico de tickets mediante banderas de activación con
+                  filtros globales automáticos en EF Core.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="challenge-item p-4 rounded-4 shadow-sm h-100">
+                <h3 class="h5 fw-bold mb-2">Middleware Global</h3>
+                <p class="text-muted small mb-0">
+                  Captura centralizada de excepciones transformadas en
+                  respuestas HTTP estandarizadas por `ErrorCode`.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="challenge-item p-4 rounded-4 shadow-sm h-100">
+                <h3 class="h5 fw-bold mb-2">Guard & Options Pattern</h3>
+                <p class="text-muted small mb-0">
+                  Extensiones `EnsureFound` para comprobaciones rápidas y
+                  configuración fuertemente tipada de almacenamiento.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: Seguridad -->
+      <section id="security" class="py-5 bg-light border-top border-bottom">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <h2 class="fw-bold">Seguridad, Autenticación y Autorización</h2>
+              <div class="custom-divider mx-auto mt-2"></div>
+            </div>
+          </div>
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                <h3 class="h5 fw-bold mb-3">Autenticación Híbrida</h3>
+                <ul class="text-muted small mb-0">
+                  <li class="mb-2">
+                    <strong>Cookie Authentication:</strong> Generación de
+                    identidades mediante claims para vistas MVC.
+                  </li>
+                  <li class="mb-0">
+                    <strong>JWT Bearer:</strong> Tokens seguros validados en
+                    firma, issuer, audience y expiración exacta (clock skew
+                    cero) para la API.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                <h3 class="h5 fw-bold mb-3">Autorización y Permisos</h3>
+                <ul class="text-muted small mb-0">
+                  <li class="mb-2">
+                    <strong>Políticas HTTP:</strong> Restricciones por roles
+                    como <code>PersonalTecnico</code>,
+                    <code>SoloSupervisor</code> y
+                    <code>SoloAdministrador</code>.
+                  </li>
+                  <li class="mb-2">
+                    <strong>Permisos de Negocio:</strong> Validación granular
+                    mediante `Permission` y `RolePermissions`.
+                  </li>
+                  <li class="mb-0">
+                    <strong>Contexto Actual:</strong> Componente `CurrentUser`
+                    para extraer identificadores y roles directamente desde los
+                    claims.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: Persistencia y Archivos -->
+      <section id="persistence" class="py-5">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <h2 class="fw-bold">Persistencia y Manejo de Archivos</h2>
+              <div class="custom-divider mx-auto mt-2"></div>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                <h3 class="h5 fw-bold mb-3">SQL Server & EF Core 10</h3>
+                <p class="text-muted">
+                  Centralización de esquemas mediante `AppDbContext` y
+                  configuraciones desacopladas con
+                  `IEntityTypeConfiguration&lt;T&gt;`. Relaciones explícitas de
+                  1:N para historiales de estado, prioridad y asignaciones de
+                  técnicos.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                <h3 class="h5 fw-bold mb-3">
+                  Almacenamiento Físico de Archivos
+                </h3>
+                <p class="text-muted">
+                  Para evitar saturar la base de datos con blobs binarios,
+                  `FileStorageService` almacena los documentos físicamente
+                  organizados por directorios de ticket, asignando nombres
+                  seguros basados en <strong>GUID</strong> y guardando metadatos
+                  relacionales en SQL Server.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: Frontend y Pruebas -->
+      <section id="frontend" class="py-5 bg-light border-top border-bottom">
+        <div class="container">
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <h2 class="fw-bold">Frontend Modular y Pruebas Automatizadas</h2>
+              <div class="custom-divider mx-auto mt-2"></div>
+            </div>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                <h3 class="h5 fw-bold mb-3">Organización Frontend</h3>
+                <p class="text-muted mb-2">
+                  Estructura limpia orientada a mantenimiento:
+                </p>
+                <ul class="text-muted small mb-0">
+                  <li>
+                    <strong>JavaScript:</strong> Separado en carpetas de
+                    infraestructura, servicios, componentes, páginas y auth.
+                  </li>
+                  <li class="mt-1">
+                    <strong>CSS:</strong> Organizado modularmente en base,
+                    layout, componentes y páginas.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-4 bg-white rounded-4 shadow-sm h-100 border">
+                <h3 class="h5 fw-bold mb-3">Pruebas Automatizadas</h3>
+                <p class="text-muted mb-2">Garantía de calidad mediante:</p>
+                <ul class="text-muted small mb-0">
+                  <li>
+                    <strong>Frameworks:</strong> xUnit para ejecución y
+                    FluentAssertions para aserciones legibles.
+                  </li>
+                  <li class="mt-1">
+                    <strong>Mocking y Aislamiento:</strong> Uso de Moq para
+                    servicios y EF Core InMemory para pruebas de repositorios.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección: Enlaces -->
+      <section id="links" class="py-5 bg-dark text-white">
+        <div class="container text-center">
+          <h2 class="fw-bold mb-3">Explora el Proyecto SGTS</h2>
+          <p class="text-white-50 mb-4">
+            Revisa la documentación técnica detallada o el repositorio oficial
+            del código fuente.
+          </p>
+          <div class="d-flex justify-content-center gap-3">
+            <a
+              href="https://github.com"
+              class="btn btn-light px-4 fw-semibold"
+              target="_blank"
+              >Ver en GitHub</a
+            >
+            <a href="#overview" class="btn btn-outline-light px-4 fw-semibold"
+              >Volver al Inicio</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center text-muted small border-top bg-white">
+      <div class="container">
+        <p class="mb-0">
+          SGTS — Sistema de Gestión de Tickets | Desarrollado con .NET 10 &copy;
+          2026
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
