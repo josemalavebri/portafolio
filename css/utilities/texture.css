@@ -1,29 +1,170 @@
-/* =========================================================
-   PAGE TEXTURE
-   ========================================================= */
+/* ==========================================================
+   SECTION TEXTURES
+========================================================== */
 
-.page-texture {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.6; /* Súbela del 0.18 a 0.5 o 0.6 para validarlo */
-  mix-blend-mode: overlay; /* Prueba overlay en lugar de soft-light si el fondo es muy oscuro */
-}
-body {
-  position: relative;
+/* ==========================================================
+   SOBRE MÍ
+   CUADRÍCULA TÉCNICA
+========================================================== */
+
+#sobre-mi {
+  background-color: var(--color-bg);
+
+  background-image:
+    linear-gradient(rgba(0, 103, 184, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 103, 184, 0.07) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  animation: texture-grid 18s linear infinite;
 }
 
-body > *:not(.page-texture) {
-  position: relative;
-  z-index: 1;
+/* ==========================================================
+   FORMACIÓN
+   PUNTOS
+========================================================== */
+
+#formacion {
+  background-color: var(--color-bg-soft);
+
+  background-image: radial-gradient(
+    rgba(0, 103, 184, 0.14) 1.2px,
+    transparent 1.2px
+  );
+
+  background-size: 18px 18px;
+
+  animation: texture-dots 14s ease-in-out infinite;
 }
+
+/* ==========================================================
+   TECNOLOGÍAS
+   CUADRÍCULA TÉCNICA
+========================================================== */
+
+#tecnologias {
+  background-color: var(--color-bg);
+
+  background-image:
+    linear-gradient(rgba(0, 103, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 103, 184, 0.05) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  animation: texture-grid-reverse 22s linear infinite;
+}
+
+/* ==========================================================
+   EXPERIENCIA
+   PUNTOS
+========================================================== */
+
+#experiencia {
+  background-color: var(--color-bg-soft);
+
+  background-image: radial-gradient(
+    rgba(0, 103, 184, 0.11) 1.2px,
+    transparent 1.2px
+  );
+
+  background-size: 18px 18px;
+
+  animation: texture-dots-reverse 17s ease-in-out infinite;
+}
+
+/* ==========================================================
+   PROYECTOS
+   CUADRÍCULA TÉCNICA
+========================================================== */
+
+#proyectos {
+  background-color: var(--color-bg);
+
+  background-image:
+    linear-gradient(rgba(0, 103, 184, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 103, 184, 0.04) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+
+  animation: texture-grid 26s linear infinite;
+}
+
+/* ==========================================================
+   ANIMACIONES
+========================================================== */
+
+/* Cuadrícula → movimiento diagonal */
+
+@keyframes texture-grid {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 40px 40px;
+  }
+}
+
+/* Cuadrícula → dirección contraria */
+
+@keyframes texture-grid-reverse {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -40px -40px;
+  }
+}
+
+/* Puntos → movimiento + respiración */
+
+@keyframes texture-dots {
+  0% {
+    background-position: 0 0;
+    opacity: 1;
+  }
+
+  50% {
+    background-position: 9px 9px;
+    opacity: 0.82;
+  }
+
+  100% {
+    background-position: 18px 18px;
+    opacity: 1;
+  }
+}
+
+/* Puntos → dirección contraria */
+
+@keyframes texture-dots-reverse {
+  0% {
+    background-position: 0 0;
+    opacity: 1;
+  }
+
+  50% {
+    background-position: -9px -9px;
+    opacity: 0.82;
+  }
+
+  100% {
+    background-position: -18px -18px;
+    opacity: 1;
+  }
+}
+
+/* ==========================================================
+   ACCESIBILIDAD
+========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .page-texture {
-    display: none;
+  #sobre-mi,
+  #formacion,
+  #tecnologias,
+  #experiencia,
+  #proyectos {
+    animation: none;
   }
 }

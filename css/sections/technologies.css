@@ -1,0 +1,485 @@
+/* ==========================================================
+   TECHNOLOGY GROUPS
+========================================================== */
+
+.technology-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.technology-group {
+  position: relative;
+
+  width: 100%;
+  padding: 28px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.technology-group::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: var(--color-brand);
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform 0.4s ease;
+}
+
+.technology-group:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.technology-group:hover::before {
+  transform: scaleX(1);
+}
+
+/* ==========================================================
+   GROUP TOP
+========================================================== */
+
+.technology-group-top {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.35fr);
+
+  gap: 40px;
+  align-items: center;
+}
+
+/* ==========================================================
+   GROUP INFORMATION
+========================================================== */
+
+.technology-group-info {
+  min-width: 0;
+}
+
+.technology-group-header {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+/* ==========================================================
+   GROUP ICON
+========================================================== */
+
+.technology-group-icon {
+  display: flex;
+  flex: 0 0 auto;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  background: var(--color-bg-soft);
+  color: var(--color-brand);
+
+  font-size: 1.05rem;
+
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.technology-group:hover .technology-group-icon {
+  transform: translateY(-2px);
+
+  border-color: var(--color-brand);
+  background: var(--color-brand-light);
+
+  box-shadow: 0 0 0 4px var(--color-brand-light);
+}
+
+/* ==========================================================
+   GROUP TITLE
+========================================================== */
+
+.technology-group h3 {
+  margin-bottom: 4px;
+
+  color: var(--color-text);
+
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.technology-group p {
+  max-width: 520px;
+
+  margin-bottom: 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   TECHNOLOGIES AREA
+========================================================== */
+
+.technology-group-technologies {
+  min-width: 0;
+
+  padding-left: 32px;
+
+  border-left: 1px solid var(--color-border);
+
+  transition: border-color var(--transition-base);
+}
+
+.technology-group:hover .technology-group-technologies {
+  border-color: var(--color-border-strong);
+}
+
+/* ==========================================================
+   TECHNOLOGY LIST LABEL
+========================================================== */
+
+.technology-list-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--color-text-tertiary);
+
+  font-family: var(--font-code);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   TECHNOLOGY LIST
+========================================================== */
+
+.technology-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+/* ==========================================================
+   TECHNOLOGY ITEM
+========================================================== */
+
+.technology-item {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 38px;
+  padding: 7px 12px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  background: var(--color-bg-soft);
+  color: var(--color-text-secondary);
+
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.technology-item:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--color-brand);
+
+  background: var(--color-brand-light);
+  color: var(--color-brand-dark);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.technology-item:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================
+   ACTIVE TECHNOLOGY
+========================================================== */
+
+.technology-item.active {
+  border-color: var(--color-brand);
+
+  background: var(--color-brand-light);
+  color: var(--color-brand-dark);
+
+  font-weight: 700;
+
+  box-shadow: 0 0 0 1px var(--color-brand-light);
+}
+
+.technology-item.active::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+
+  width: 3px;
+  height: 55%;
+
+  border-radius: 0 4px 4px 0;
+
+  background: var(--color-brand);
+}
+
+/* ==========================================================
+   TECHNOLOGY ICONS
+========================================================== */
+
+.technology-item img {
+  width: 18px;
+  height: 18px;
+
+  flex: 0 0 auto;
+
+  object-fit: contain;
+
+  transition: transform var(--transition-fast);
+}
+
+.technology-item i {
+  flex: 0 0 auto;
+
+  font-size: 0.9rem;
+
+  transition: transform var(--transition-fast);
+}
+
+.technology-item:hover img,
+.technology-item:hover i {
+  transform: scale(1.08);
+}
+
+/* ==========================================================
+   FOCUS
+========================================================== */
+
+.technology-item:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   KNOWLEDGE
+========================================================== */
+
+.technology-detail {
+  margin-top: 28px;
+  padding-top: 22px;
+
+  border-top: 1px solid var(--color-border);
+
+  transition: border-color var(--transition-base);
+}
+
+.technology-group:hover .technology-detail {
+  border-color: var(--color-border-strong);
+}
+
+.technology-detail-label {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: var(--color-brand);
+
+  font-family: var(--font-code);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+
+  letter-spacing: 0.09em;
+  line-height: 1.4;
+
+  text-transform: uppercase;
+}
+
+/* ==========================================================
+   KNOWLEDGE LIST
+========================================================== */
+
+.technology-knowledge {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px 24px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.technology-knowledge li {
+  position: relative;
+
+  padding-left: 15px;
+
+  color: var(--color-text-secondary);
+
+  font-size: 0.86rem;
+  line-height: 1.5;
+
+  animation: knowledge-item-in 0.35s ease both;
+}
+
+.technology-knowledge li::before {
+  content: "";
+
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--color-brand);
+}
+
+/* ==========================================================
+   KNOWLEDGE ANIMATION
+========================================================== */
+
+@keyframes knowledge-item-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================
+   RESPONSIVE
+   Bootstrap maneja el layout.
+========================================================== */
+
+@media (max-width: 767.98px) {
+  .technology-group {
+    padding: 22px;
+  }
+
+  .technology-group-top {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .technology-group-technologies {
+    padding-top: 22px;
+    padding-left: 0;
+
+    border-top: 1px solid var(--color-border);
+    border-left: 0;
+  }
+
+  .technology-knowledge {
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .technology-group,
+  .technology-group::before,
+  .technology-group-icon,
+  .technology-group-technologies,
+  .technology-item,
+  .technology-item img,
+  .technology-item i,
+  .technology-detail {
+    transition: none;
+  }
+
+  .technology-group:hover {
+    transform: none;
+  }
+
+  .technology-group:hover .technology-group-icon {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .technology-item:hover {
+    transform: none;
+  }
+
+  .technology-item:hover img,
+  .technology-item:hover i {
+    transform: none;
+  }
+
+  .technology-knowledge li {
+    animation: none;
+  }
+}

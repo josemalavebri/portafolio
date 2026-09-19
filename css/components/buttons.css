@@ -1,79 +1,56 @@
 .btn {
-  min-height: 42px;
-
-  padding: 0.5rem 1rem;
-
-  border-radius: var(--radius-md);
-
-  font-size: var(--text-sm);
+  min-height: 44px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
   font-weight: 600;
-
   transition:
-    color var(--transition-fast),
-    background-color var(--transition-fast),
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast),
-    transform var(--transition-fast);
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
-
-.btn:active {
-  transform: translateY(0) scale(0.97);
-}
-
-/* ==============================
-   PRIMARIO
-   ============================== */
 
 .btn-primary {
+  border-color: var(--color-brand);
+  background: var(--color-brand);
   color: #ffffff;
-
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-
-  box-shadow: var(--shadow-primary);
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
+  border-color: var(--color-brand-dark);
+  background: var(--color-brand-dark);
   color: #ffffff;
-
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
 }
 
-/* ==============================
-   SECUNDARIO
-   ============================== */
-
-.btn-secondary {
-  color: var(--color-text-soft);
-
-  background-color: transparent;
-  border-color: var(--color-border);
+.btn-outline-primary {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
 }
 
-.btn-secondary:hover,
-.btn-secondary:focus {
-  color: var(--color-text);
-
-  background-color: var(--color-surface);
-  border-color: var(--color-border-hover);
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  border-color: var(--color-brand);
+  background: var(--color-brand-light);
+  color: var(--color-brand-dark);
 }
 
-/* ==============================
-   DISABLED
-   ============================== */
+.btn-link {
+  color: var(--color-brand);
+  font-weight: 600;
+  text-decoration: none;
+}
 
-.btn:disabled,
-.btn.disabled {
-  opacity: 0.45;
+.btn-link:hover {
+  color: var(--color-brand-dark);
+}
 
-  cursor: not-allowed;
-  pointer-events: none;
+.btn-link i {
+  margin-left: 6px;
+  font-size: 0.8rem;
 }

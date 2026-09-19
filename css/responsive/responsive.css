@@ -1,0 +1,122 @@
+@media (max-width: 991.98px) {
+  .site-header .navbar {
+    min-height: 64px;
+  }
+
+  .nav-link {
+    padding: 10px 12px !important;
+  }
+
+  .hero {
+    padding-top: 84px;
+    padding-bottom: 84px;
+  }
+
+  .profile-card {
+    max-width: 340px;
+  }
+
+  .experience-item {
+    gap: 32px;
+  }
+
+  .experience-meta {
+    flex-basis: 190px;
+    min-width: 0;
+  }
+
+  .project-column {
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .project-image {
+    min-height: 280px;
+    aspect-ratio: 16 / 8;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .experience-item {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .experience-meta {
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 575.98px) {
+  :root {
+    --section-spacing: 68px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  .hero {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.7rem, 14vw, 4rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  .section-description {
+    font-size: 0.95rem;
+  }
+
+  .info-card,
+  .technology-card,
+  .technology-group {
+    padding: 22px;
+  }
+
+  .experience-item {
+    padding: 26px 0;
+  }
+
+  .project-content {
+    padding: 24px;
+  }
+
+  .project-image {
+    min-height: 220px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .project-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .modal-header {
+    padding: 20px;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .modal-footer {
+    padding: 16px 20px;
+  }
+
+  .modal-title {
+    font-size: 1.2rem;
+  }
+}

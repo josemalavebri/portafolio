@@ -1,25 +1,24 @@
-@import url("./base/reset.css");
 @import url("./base/variables.css");
+@import url("./base/reset.css");
 @import url("./base/typography.css");
 
-@import url("./layout/header.css");
-@import url("./layout/sections.css");
-@import url("./layout/footer.css");
-
 @import url("./components/buttons.css");
+@import url("./components/navbar.css");
+@import url("./components/cards.css");
+@import url("./components/modal.css");
 
 @import url("./sections/hero.css");
-
-@import url("./components/cards.css");
-@import url("./components/badges.css");
-@import url("./components/technology-card.css");
-@import url("./components/modal.css");
-@import url("./sections/formation.css");
-@import url("./sections/technology.css");
+@import url("./sections/education.css");
+@import url("./sections/profile.css");
+@import url("./sections/technologies.css");
 @import url("./sections/experience.css");
 @import url("./sections/projects.css");
+@import url("./sections/footer.css");
 
 @import url("./utilities/animations.css");
-@import url("./utilities/utilities.css");
+@import url("./utilities/accessibility.css");
 @import url("./utilities/texture.css");
-@import url("./utilities/starts.css");
+
+@import url("./responsive/responsive.css");
+
+@import url("./layout/layout.css");
