@@ -1,3 +1,5 @@
+import Lenis from "lenis";
+
 /* ==========================================================
    LENIS
    Smooth scrolling únicamente en dispositivos de escritorio.
