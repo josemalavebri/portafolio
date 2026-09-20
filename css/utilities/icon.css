@@ -1,0 +1,11 @@
+.icon-color-inverse {
+  color: var(--color-text-inverse);
+  width: 20px;
+  height: 26px;
+}
+
+.icon {
+  color: var(--color-text-accent);
+  width: 20px;
+  height: 20px;
+}

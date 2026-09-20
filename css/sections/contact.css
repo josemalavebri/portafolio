@@ -1,15 +1,14 @@
-/* ==========================================================
-   CONTACT
-========================================================== */
-
 .contact-info,
 .contact-form-wrapper {
   position: relative;
   height: 100%;
   overflow: hidden;
+
   padding: 26px;
+
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+
   background:
     radial-gradient(
       circle at 100% 0%,
@@ -17,6 +16,7 @@
       transparent 35%
     ),
     var(--color-bg);
+
   box-shadow: var(--shadow-sm);
 }
 
@@ -27,11 +27,14 @@
 .contact-info::before,
 .contact-form-wrapper::before {
   content: "";
+
   position: absolute;
   top: 0;
   left: 0;
+
   width: 100%;
   height: 3px;
+
   background: var(--color-brand);
 }
 
@@ -42,19 +45,26 @@
 .contact-info::after,
 .contact-form-wrapper::after {
   content: "";
+
   position: absolute;
   top: 0;
   right: 0;
+
   width: 180px;
   height: 180px;
+
   pointer-events: none;
+
   opacity: 0.45;
+
   background-image: linear-gradient(
     135deg,
     rgb(0 103 184 / 0.035) 1px,
     transparent 1px
   );
+
   background-size: 14px 14px;
+
   mask-image: linear-gradient(135deg, black, transparent 75%);
 }
 
@@ -71,29 +81,39 @@
 .contact-info-label,
 .contact-form-label {
   display: block;
+
   margin-bottom: 6px;
+
   color: var(--color-brand);
+
   font-family: var(--font-code);
   font-size: 0.64rem;
   font-weight: 700;
+
   letter-spacing: 0.1em;
   line-height: 1.4;
+
   text-transform: uppercase;
 }
 
 .contact-info-title,
 .contact-form-title {
   margin-bottom: 8px;
+
   color: var(--color-text);
+
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.25;
+
   letter-spacing: -0.02em;
 }
 
 .contact-info-description {
   margin-bottom: 0;
+
   color: var(--color-text-secondary);
+
   font-size: 0.84rem;
   line-height: 1.55;
 }
@@ -105,14 +125,19 @@
 .contact-link {
   position: relative;
   z-index: 1;
+
+  display: flex;
+  align-items: center;
+
   min-height: 58px;
   padding: 9px 0;
+
   border-top: 1px solid var(--color-border);
+
   color: var(--color-text);
   text-decoration: none;
-  transition:
-    color var(--transition-fast),
-    padding-left var(--transition-base);
+
+  transition: color var(--transition-fast);
 }
 
 .contact-link:first-of-type {
@@ -120,7 +145,6 @@
 }
 
 a.contact-link:hover {
-  padding-left: 4px;
   color: var(--color-brand);
 }
 
@@ -128,13 +152,18 @@ a.contact-link:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 34px;
   height: 34px;
+
   flex: 0 0 34px;
+
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+
   background: var(--color-bg-soft);
   color: var(--color-brand);
+
   transition:
     border-color var(--transition-fast),
     background-color var(--transition-fast);
@@ -142,8 +171,10 @@ a.contact-link:hover {
 
 .contact-link-icon img {
   display: block;
+
   width: 17px;
   height: 17px;
+
   object-fit: contain;
 }
 
@@ -159,12 +190,15 @@ a.contact-link:hover .contact-link-icon {
 .contact-link-content {
   display: flex;
   flex-direction: column;
+
   min-width: 0;
+
   gap: 1px;
 }
 
 .contact-link-label {
   color: var(--color-text);
+
   font-size: 0.77rem;
   font-weight: 700;
   line-height: 1.3;
@@ -172,17 +206,22 @@ a.contact-link:hover .contact-link-icon {
 
 .contact-link-value {
   overflow: hidden;
+
   color: var(--color-text-tertiary);
+
   font-size: 0.73rem;
   line-height: 1.35;
+
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .contact-link-arrow {
   margin-left: auto;
+
   color: var(--color-text-tertiary);
   font-size: 0.6rem;
+
   transition:
     color var(--transition-fast),
     transform var(--transition-fast);
@@ -203,7 +242,9 @@ a.contact-link:hover .contact-link-arrow {
 
 .contact-form-wrapper .form-label {
   margin-bottom: 5px;
+
   color: var(--color-text);
+
   font-size: 0.76rem;
   font-weight: 600;
 }
@@ -211,14 +252,19 @@ a.contact-link:hover .contact-link-arrow {
 .contact-form-wrapper .form-control {
   min-height: 40px;
   padding: 8px 11px;
+
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
+
   background: var(--color-bg);
   color: var(--color-text);
+
   font-family: var(--font-body);
   font-size: 0.8rem;
   line-height: 1.45;
+
   box-shadow: none;
+
   transition:
     border-color var(--transition-fast),
     box-shadow var(--transition-fast);
@@ -252,34 +298,38 @@ a.contact-link:hover .contact-link-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   gap: 8px;
+
   min-height: 40px;
   padding: 9px 16px;
+
   border: 1px solid var(--color-brand);
   border-radius: var(--radius-md);
+
   background: var(--color-brand);
   color: var(--color-text-inverse);
+
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1;
+
   transition:
     background-color var(--transition-fast),
     border-color var(--transition-fast),
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
+    transform var(--transition-fast);
 }
 
 .contact-submit-button:hover {
   border-color: var(--color-brand-dark);
   background: var(--color-brand-dark);
   color: var(--color-text-inverse);
+
   transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
 }
 
 .contact-submit-button:active {
   transform: translateY(0);
-  box-shadow: none;
 }
 
 .contact-submit-button:focus-visible {
@@ -304,10 +354,6 @@ a.contact-link:hover .contact-link-arrow {
     transition: none;
   }
 
-  a.contact-link:hover {
-    padding-left: 0;
-  }
-
   a.contact-link:hover .contact-link-arrow {
     transform: none;
   }
@@ -325,14 +371,19 @@ a.contact-link:hover .contact-link-arrow {
 .contact-alert {
   display: flex;
   align-items: center;
+
   gap: 12px;
+
   margin-bottom: 18px;
   padding: 11px 13px;
+
   border: 1px solid var(--color-border);
   border-left: 3px solid var(--color-success);
   border-radius: var(--radius-md);
+
   background: var(--color-bg-soft);
   color: var(--color-text);
+
   box-shadow: var(--shadow-sm);
 
   opacity: 0;
@@ -359,12 +410,17 @@ a.contact-link:hover .contact-link-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 30px;
   height: 30px;
+
   flex: 0 0 30px;
+
   border-radius: 50%;
+
   background: rgb(16 124 16 / 0.1);
   color: var(--color-success);
+
   font-size: 0.7rem;
 }
 
@@ -375,12 +431,15 @@ a.contact-link:hover .contact-link-arrow {
 .contact-alert-content {
   display: flex;
   flex-direction: column;
+
   min-width: 0;
+
   gap: 2px;
 }
 
 .contact-alert-title {
   color: var(--color-text);
+
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.3;
@@ -388,6 +447,7 @@ a.contact-link:hover .contact-link-arrow {
 
 .contact-alert-message {
   color: var(--color-text-secondary);
+
   font-size: 0.72rem;
   line-height: 1.4;
 }
@@ -400,16 +460,23 @@ a.contact-link:hover .contact-link-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
   width: 28px;
   height: 28px;
+
   flex: 0 0 28px;
+
   margin-left: auto;
   padding: 0;
+
   border: 0;
   border-radius: var(--radius-sm);
+
   background: transparent;
   color: var(--color-text-tertiary);
+
   font-size: 0.7rem;
+
   transition:
     background-color var(--transition-fast),
     color var(--transition-fast);
@@ -426,15 +493,8 @@ a.contact-link:hover .contact-link-arrow {
 }
 
 /* ==========================================================
-   REDUCED MOTION
+   CONTACT STATES
 ========================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .contact-alert {
-    transition: none;
-    transform: none;
-  }
-}
 
 .contact-alert.is-success {
   border-left-color: var(--color-success);
@@ -460,8 +520,11 @@ a.contact-link:hover .contact-link-arrow {
 
 .contact-field-error {
   display: none;
+
   margin-top: 5px;
+
   color: var(--color-danger);
+
   font-size: 0.7rem;
   line-height: 1.4;
 }

@@ -1,5 +1,6 @@
 /* ==========================================================
    SECTION TEXTURES
+   Texturas estáticas optimizadas para rendimiento
 ========================================================== */
 
 /* ==========================================================
@@ -15,8 +16,6 @@
     linear-gradient(90deg, rgba(0, 103, 184, 0.07) 1px, transparent 1px);
 
   background-size: 40px 40px;
-
-  animation: texture-grid 18s linear infinite;
 }
 
 /* ==========================================================
@@ -33,8 +32,6 @@
   );
 
   background-size: 18px 18px;
-
-  animation: texture-dots 14s ease-in-out infinite;
 }
 
 /* ==========================================================
@@ -50,8 +47,6 @@
     linear-gradient(90deg, rgba(0, 103, 184, 0.05) 1px, transparent 1px);
 
   background-size: 40px 40px;
-
-  animation: texture-grid-reverse 22s linear infinite;
 }
 
 /* ==========================================================
@@ -68,8 +63,6 @@
   );
 
   background-size: 18px 18px;
-
-  animation: texture-dots-reverse 17s ease-in-out infinite;
 }
 
 /* ==========================================================
@@ -85,111 +78,18 @@
     linear-gradient(90deg, rgba(0, 103, 184, 0.04) 1px, transparent 1px);
 
   background-size: 40px 40px;
-
-  animation: texture-grid 26s linear infinite;
 }
 
 /* ==========================================================
    CONTACTO
-   CUADRÍCULA TÉCNICA
 ========================================================== */
 
 #contacto {
   background-color: var(--color-bg-soft);
+
   background-image:
     linear-gradient(rgba(0, 103, 184, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 103, 184, 0.035) 1px, transparent 1px);
+
   background-size: 40px 40px;
-  animation: texture-grid-reverse 24s linear infinite;
-}
-
-/* ==========================================================
-   ANIMACIONES
-========================================================== */
-
-/* Cuadrícula → movimiento diagonal */
-
-@keyframes texture-grid {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: 40px 40px;
-  }
-}
-
-/* Cuadrícula → dirección contraria */
-
-@keyframes texture-grid-reverse {
-  from {
-    background-position: 0 0;
-  }
-
-  to {
-    background-position: -40px -40px;
-  }
-}
-
-/* Puntos → movimiento + respiración */
-
-@keyframes texture-dots {
-  0% {
-    background-position: 0 0;
-    opacity: 1;
-  }
-
-  50% {
-    background-position: 9px 9px;
-    opacity: 0.82;
-  }
-
-  100% {
-    background-position: 18px 18px;
-    opacity: 1;
-  }
-}
-
-/* Puntos → dirección contraria */
-
-@keyframes texture-dots-reverse {
-  0% {
-    background-position: 0 0;
-    opacity: 1;
-  }
-
-  50% {
-    background-position: -9px -9px;
-    opacity: 0.82;
-  }
-
-  100% {
-    background-position: -18px -18px;
-    opacity: 1;
-  }
-}
-
-/* ==========================================================
-   ACCESIBILIDAD
-========================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  #sobre-mi,
-  #formacion,
-  #tecnologias,
-  #experiencia,
-  #proyectos {
-    animation: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #sobre-mi,
-  #formacion,
-  #tecnologias,
-  #experiencia,
-  #proyectos,
-  #contacto {
-    animation: none;
-  }
 }

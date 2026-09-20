@@ -4,7 +4,6 @@
 
 .experience-list {
   position: relative;
-
   border-top: 1px solid var(--color-border);
 }
 
@@ -24,9 +23,7 @@
 
   border-bottom: 1px solid var(--color-border);
 
-  transition:
-    border-color var(--transition-base),
-    padding-left var(--transition-base);
+  transition: border-color var(--transition-base);
 }
 
 .experience-item:hover {
@@ -39,9 +36,7 @@
 
 .experience-meta {
   position: relative;
-
   flex: 0 0 220px;
-
   padding-left: 22px;
 }
 
@@ -70,9 +65,7 @@
 
 .experience-item:hover .experience-meta::before {
   background: var(--color-brand);
-
   box-shadow: 0 0 0 4px var(--color-brand-light);
-
   transform: scale(1.05);
 }
 
@@ -167,7 +160,6 @@
 .experience-item:hover .experience-placeholder {
   border-color: var(--color-brand);
   background: var(--color-brand-light);
-
   transform: translateY(-2px);
 }
 
@@ -208,7 +200,6 @@
   align-items: center;
 
   gap: 8px;
-
   padding: 0;
 
   border: 0;
@@ -220,14 +211,10 @@
 
   text-decoration: none;
 
-  transition:
-    color var(--transition-fast),
-    gap var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 .experience-toggle:hover {
-  gap: 11px;
-
   color: var(--color-brand-dark);
 }
 
@@ -248,7 +235,6 @@
 
 /* ==========================================================
    RESPONSIVE
-   Bootstrap maneja el layout.
 ========================================================== */
 
 @media (max-width: 991.98px) {
@@ -264,17 +250,13 @@
 @media (max-width: 767.98px) {
   .experience-item {
     flex-direction: column;
-
     gap: 16px;
-
     padding: 26px 0;
   }
 
   .experience-meta {
     flex: 0 0 auto;
-
     width: 100%;
-
     padding-left: 22px;
   }
 
