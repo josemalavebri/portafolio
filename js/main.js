@@ -7,7 +7,6 @@ import { initContactForm } from "./contact.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   initNavbar();
-  initSmoothNavigation();
   initScrollReveal();
   initEducationReveal();
   initTechnologySelector();
