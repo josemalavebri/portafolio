@@ -75,7 +75,6 @@ const technologyKnowledge = {
     "Interfaces y abstracción",
     "Encapsulamiento y herencia",
     "Genéricos y colecciones",
-    "LINQ",
     "Delegados y expresiones lambda",
     "async / await",
     "Manejo de excepciones",
@@ -98,7 +97,6 @@ const technologyKnowledge = {
   aspnet: [
     "Desarrollo de APIs REST",
     "Controllers y routing",
-    "Minimal APIs",
     "Inyección de dependencias",
     "Middleware",
     "Model Binding",
@@ -180,7 +178,6 @@ const technologyKnowledge = {
     "DbContext",
     "Entidades y configuraciones",
     "Relaciones",
-    "LINQ",
     "Migrations",
     "Tracking y No Tracking",
     "Consultas y persistencia",
