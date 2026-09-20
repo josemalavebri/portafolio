@@ -90,6 +90,20 @@
 }
 
 /* ==========================================================
+   CONTACTO
+   CUADRÍCULA TÉCNICA
+========================================================== */
+
+#contacto {
+  background-color: var(--color-bg-soft);
+  background-image:
+    linear-gradient(rgba(0, 103, 184, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 103, 184, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: texture-grid-reverse 24s linear infinite;
+}
+
+/* ==========================================================
    ANIMACIONES
 ========================================================== */
 
@@ -165,6 +179,17 @@
   #tecnologias,
   #experiencia,
   #proyectos {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #sobre-mi,
+  #formacion,
+  #tecnologias,
+  #experiencia,
+  #proyectos,
+  #contacto {
     animation: none;
   }
 }

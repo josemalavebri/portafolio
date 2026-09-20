@@ -1,3 +1,5 @@
+
+
 const lenis = new Lenis({
   duration: 0.8,
   smoothWheel: true,
@@ -10,3 +12,5 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
+
+export default lenis;
