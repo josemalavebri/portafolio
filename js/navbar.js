@@ -11,27 +11,34 @@ export function initNavbar() {
     return;
   }
 
+  let animationFrameId = null;
+
   const updateActiveLink = () => {
-    const scrollPosition = window.scrollY + 120;
+    if (animationFrameId !== null) {
+      return;
+    }
 
-    let currentSection = "";
+    animationFrameId = requestAnimationFrame(() => {
+      const scrollPosition = window.scrollY + 120;
 
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
+      let currentSection = "";
 
-      if (
-        scrollPosition >= sectionTop &&
-        scrollPosition < sectionTop + sectionHeight
-      ) {
-        currentSection = section.id;
-      }
-    });
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
 
-    navLinks.forEach((link) => {
-      const href = link.getAttribute("href");
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          currentSection = section.id;
+        }
+      });
 
-      link.classList.toggle("active", href === `#${currentSection}`);
+      navLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+
+        link.classList.toggle("active", href === `#${currentSection}`);
+      });
+
+      animationFrameId = null;
     });
   };
 

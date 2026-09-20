@@ -1,8 +1,3 @@
-/* ==========================================================
-   PORTFOLIO - MAIN JS
-   Punto de entrada de los módulos.
-========================================================== */
-
 import { initNavbar } from "./navbar.js";
 import { initSmoothNavigation } from "./navigation.js";
 import { initScrollReveal } from "./scroll-reveal.js";

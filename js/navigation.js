@@ -2,8 +2,14 @@
    SMOOTH NAVIGATION
 ========================================================== */
 
+import lenis from "./lenis.js";
+
 export function initSmoothNavigation() {
   const internalLinks = document.querySelectorAll('a[href^="#"]');
+
+  if (!internalLinks.length) {
+    return;
+  }
 
   internalLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
@@ -21,14 +27,9 @@ export function initSmoothNavigation() {
 
       event.preventDefault();
 
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      lenis.scrollTo(target);
 
-      /*
-       * Cierra el menú móvil de Bootstrap si está abierto.
-       */
+      /* Cierra el menú móvil de Bootstrap si está abierto. */
       const navbarCollapse = document.querySelector(".navbar-collapse.show");
 
       if (navbarCollapse && window.bootstrap) {
