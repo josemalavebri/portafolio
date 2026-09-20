@@ -1,15 +1,15 @@
 /* ==========================================================
    LENIS
-   Smooth scrolling en dispositivos no táctiles.
+   Smooth scrolling únicamente en dispositivos de escritorio.
 ========================================================== */
 
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
 
-const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+const isMobile = window.matchMedia("(max-width: 767.98px)").matches;
 
-const lenisEnabled = !prefersReducedMotion && !isTouchDevice;
+const lenisEnabled = !prefersReducedMotion && !isMobile;
 
 const lenis = new Lenis({
   duration: 0.8,
