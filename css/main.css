@@ -1,3 +1,7 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+
+@import "@fontsource/space-grotesk/700.css";
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 @import url("./base/variables.css");
@@ -19,7 +23,6 @@
 @import url("./sections/footer.css");
 
 @import url("./utilities/animations.css");
-@import url("./utilities/accessibility.css");
 @import url("./utilities/texture.css");
 @import url("./utilities/icon.css");
 
