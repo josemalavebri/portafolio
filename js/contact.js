@@ -1,218 +1,277 @@
-/* ==========================================================
-   CONTACT FORM
-   Validación + Web3Forms + alerta.
-========================================================== */
+const SUCCESS_ICON = `
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 640 640"
+    aria-hidden="true"
+  >
+    <path
+      fill="currentColor"
+      d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM438 209.7C427.3 201.9 412.3 204.3 404.5 215L285.1 379.2L233 327.1C223.6 317.7 208.4 317.7 199.1 327.1C189.8 336.5 189.7 351.7 199.1 361L271.1 433C276.1 438 282.9 440.5 289.9 440C296.9 439.5 303.3 435.9 307.4 430.2L443.3 243.2C451.1 232.5 448.7 217.5 438 209.7z"
+    />
+  </svg>
+`;
+
+const ERROR_ICON = `
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 640 640"
+    aria-hidden="true"
+  >
+    <path
+      fill="currentColor"
+      d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM231 231C240.4 221.6 255.6 221.6 264.9 231L319.9 286L374.9 231C384.3 221.6 399.5 221.6 408.8 231C418.1 240.4 418.2 255.6 408.8 264.9L353.8 319.9L408.8 374.9C418.2 384.3 418.2 399.6 408.8 408.9C399.4 418.2 384.2 418.3 374.9 408.9L319.9 353.9L264.9 408.9C255.5 418.3 240.3 418.3 231 408.9C221.7 399.5 221.6 384.3 231 375L286 320L231 265C221.6 255.6 221.6 240.4 231 231z"
+    />
+  </svg>
+`;
+
+const CLOSE_ICON = `
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 640 640"
+    aria-hidden="true"
+  >
+    <path
+      fill="currentColor"
+      d="M183.1 137.4C170.6 124.9 150.3 124.9 137.8 137.4C125.3 149.9 125.3 170.2 137.8 182.7L275.2 320L137.9 457.4C125.4 469.9 125.4 490.2 137.9 502.7C150.4 515.2 170.7 515.2 183.2 502.7L320.5 365.3L457.9 502.6C470.4 515.1 490.7 515.1 503.2 502.6C515.7 490.1 515.7 469.8 503.2 457.3L365.8 320L503.1 182.6C515.6 170.1 515.6 149.8 503.1 137.3C490.6 124.8 470.3 124.8 457.8 137.3L320.5 274.7L183.1 137.4z"
+    />
+  </svg>
+`;
 
 export function initContactForm() {
+  /* ==========================================================
+     PREVENT DUPLICATE INITIALIZATION
+  ========================================================== */
+
   const contactForm = document.querySelector("#contact-form");
+
+  if (!contactForm || contactForm.dataset.initialized === "true") {
+    return;
+  }
+
+  contactForm.dataset.initialized = "true";
+
+  /* ==========================================================
+     FORM
+  ========================================================== */
+
+  const contactName = document.querySelector("#contact-name");
+  const contactEmail = document.querySelector("#contact-email");
+  const contactSubject = document.querySelector("#contact-subject");
+  const contactMessage = document.querySelector("#contact-message");
+
+  const contactNameError = document.querySelector("#contact-name-error");
+
+  const contactEmailError = document.querySelector("#contact-email-error");
+
+  const contactSubjectError = document.querySelector("#contact-subject-error");
+
+  const contactMessageError = document.querySelector("#contact-message-error");
+
+  const contactSubmit = contactForm.querySelector(".contact-submit-button");
+
+  /* ==========================================================
+     ALERT
+  ========================================================== */
+
   const contactAlert = document.querySelector("#contact-alert");
 
-  if (!contactForm || !contactAlert) {
-    return;
-  }
+  const contactAlertIcon = contactAlert?.querySelector(".contact-alert-icon");
 
-  const fields = {
-    name: {
-      input: document.querySelector("#contact-name"),
-      error: document.querySelector("#contact-name-error"),
-    },
+  const contactAlertTitle = contactAlert?.querySelector("#contact-alert-title");
 
-    email: {
-      input: document.querySelector("#contact-email"),
-      error: document.querySelector("#contact-email-error"),
-    },
+  const contactAlertMessage = contactAlert?.querySelector(
+    "#contact-alert-message",
+  );
 
-    subject: {
-      input: document.querySelector("#contact-subject"),
-      error: document.querySelector("#contact-subject-error"),
-    },
+  const contactAlertClose = contactAlert?.querySelector("#contact-alert-close");
 
-    message: {
-      input: document.querySelector("#contact-message"),
-      error: document.querySelector("#contact-message-error"),
-    },
-  };
-
-  const contactAlertTitle = document.querySelector("#contact-alert-title");
-
-  const contactAlertMessage = document.querySelector("#contact-alert-message");
-
-  const contactAlertIcon = contactAlert.querySelector(".contact-alert-icon i");
-
-  const contactAlertClose = document.querySelector("#contact-alert-close");
-
-  const submitButton = contactForm.querySelector(".contact-submit-button");
+  /* ==========================================================
+     REQUIRED ELEMENTS
+  ========================================================== */
 
   if (
+    !contactName ||
+    !contactEmail ||
+    !contactSubject ||
+    !contactMessage ||
+    !contactNameError ||
+    !contactEmailError ||
+    !contactSubjectError ||
+    !contactMessageError ||
+    !contactSubmit ||
+    !contactAlert ||
+    !contactAlertIcon ||
     !contactAlertTitle ||
     !contactAlertMessage ||
-    !contactAlertIcon ||
-    !contactAlertClose ||
-    !submitButton
+    !contactAlertClose
   ) {
+    contactForm.dataset.initialized = "false";
     return;
   }
 
-  const submitText = submitButton.querySelector("span");
-  const submitIcon = submitButton.querySelector("i");
+  /* ==========================================================
+     ORIGINAL BUTTON
+  ========================================================== */
 
-  /* ========================================================
+  const originalButtonContent = contactSubmit.innerHTML;
+
+  /* ==========================================================
      ALERT
-  ======================================================== */
+  ========================================================== */
 
-  const showAlert = (title, message, type) => {
+  function showAlert(type, title, message) {
     const isSuccess = type === "success";
+
+    contactAlert.classList.remove("is-success", "is-error");
+
+    contactAlert.classList.add(isSuccess ? "is-success" : "is-error");
+
+    contactAlertIcon.innerHTML = isSuccess ? SUCCESS_ICON : ERROR_ICON;
 
     contactAlertTitle.textContent = title;
     contactAlertMessage.textContent = message;
 
-    contactAlert.classList.remove("is-success", "is-error");
-
-    contactAlert.classList.add(
-      isSuccess ? "is-success" : "is-error",
-      "is-visible",
-    );
-
-    contactAlertIcon.className = isSuccess
-      ? "fa-solid fa-check"
-      : "fa-solid fa-xmark";
+    contactAlert.classList.add("is-visible");
 
     contactAlert.setAttribute("aria-hidden", "false");
-  };
+  }
 
-  const hideAlert = () => {
+  function hideAlert() {
     contactAlert.classList.remove("is-visible", "is-success", "is-error");
 
     contactAlert.setAttribute("aria-hidden", "true");
-  };
+  }
 
-  /* ========================================================
-     FIELD ERROR
-  ======================================================== */
+  /* ==========================================================
+     FIELD STATES
+  ========================================================== */
 
-  const setFieldError = (field, message) => {
-    const { input, error } = field;
-
+  function setFieldError(input, errorElement, message) {
     input.classList.remove("is-valid");
     input.classList.add("is-invalid");
 
-    error.textContent = message;
-    error.classList.add("is-visible");
+    errorElement.textContent = message;
+    errorElement.classList.add("is-visible");
+  }
 
-    input.setAttribute("aria-invalid", "true");
-  };
-
-  /* ========================================================
-     FIELD SUCCESS
-  ======================================================== */
-
-  const setFieldValid = (field) => {
-    const { input, error } = field;
-
+  function setFieldValid(input, errorElement) {
     input.classList.remove("is-invalid");
     input.classList.add("is-valid");
 
-    error.textContent = "";
-    error.classList.remove("is-visible");
+    errorElement.textContent = "";
+    errorElement.classList.remove("is-visible");
+  }
 
-    input.setAttribute("aria-invalid", "false");
-  };
+  function clearFieldState(input, errorElement) {
+    input.classList.remove("is-invalid", "is-valid");
 
-  /* ========================================================
-     RESET FIELD STATE
-  ======================================================== */
+    errorElement.textContent = "";
+    errorElement.classList.remove("is-visible");
+  }
 
-  const resetFieldState = (field) => {
-    const { input, error } = field;
+  /* ==========================================================
+     VALIDATION - NAME
+  ========================================================== */
 
-    input.classList.remove("is-valid", "is-invalid");
-
-    error.textContent = "";
-    error.classList.remove("is-visible");
-
-    input.removeAttribute("aria-invalid");
-  };
-
-  /* ========================================================
-     VALIDATE NAME
-  ======================================================== */
-
-  const validateName = () => {
-    const value = fields.name.input.value.trim();
+  function validateName() {
+    const value = contactName.value.trim();
 
     if (!value) {
-      setFieldError(fields.name, "Ingresa tu nombre.");
+      setFieldError(contactName, contactNameError, "El nombre es obligatorio.");
 
       return false;
     }
 
     if (value.length < 2) {
-      setFieldError(fields.name, "El nombre debe tener al menos 2 caracteres.");
+      setFieldError(
+        contactName,
+        contactNameError,
+        "El nombre debe tener al menos 2 caracteres.",
+      );
 
       return false;
     }
 
     if (value.length > 80) {
       setFieldError(
-        fields.name,
+        contactName,
+        contactNameError,
         "El nombre no puede superar los 80 caracteres.",
       );
 
       return false;
     }
 
-    setFieldValid(fields.name);
+    setFieldValid(contactName, contactNameError);
 
     return true;
-  };
+  }
 
-  /* ========================================================
-     VALIDATE EMAIL
-  ======================================================== */
+  /* ==========================================================
+     VALIDATION - EMAIL
+  ========================================================== */
 
-  const validateEmail = () => {
-    const value = fields.email.input.value.trim();
+  function validateEmail() {
+    const value = contactEmail.value.trim();
 
     if (!value) {
-      setFieldError(fields.email, "Ingresa tu correo electrónico.");
-      return false;
-    }
+      setFieldError(
+        contactEmail,
+        contactEmailError,
+        "El correo electrónico es obligatorio.",
+      );
 
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailPattern.test(value)) {
-      setFieldError(fields.email, "Ingresa un correo electrónico válido.");
       return false;
     }
 
     if (value.length > 120) {
       setFieldError(
-        fields.email,
+        contactEmail,
+        contactEmailError,
         "El correo no puede superar los 120 caracteres.",
       );
+
       return false;
     }
 
-    setFieldValid(fields.email);
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(value)) {
+      setFieldError(
+        contactEmail,
+        contactEmailError,
+        "Ingresa un correo electrónico válido.",
+      );
+
+      return false;
+    }
+
+    setFieldValid(contactEmail, contactEmailError);
+
     return true;
-  };
+  }
 
-  /* ========================================================
-     VALIDATE SUBJECT
-  ======================================================== */
+  /* ==========================================================
+     VALIDATION - SUBJECT
+  ========================================================== */
 
-  const validateSubject = () => {
-    const value = fields.subject.input.value.trim();
+  function validateSubject() {
+    const value = contactSubject.value.trim();
 
     if (!value) {
-      setFieldError(fields.subject, "Ingresa un asunto.");
+      setFieldError(
+        contactSubject,
+        contactSubjectError,
+        "El asunto es obligatorio.",
+      );
 
       return false;
     }
 
     if (value.length < 3) {
       setFieldError(
-        fields.subject,
+        contactSubject,
+        contactSubjectError,
         "El asunto debe tener al menos 3 caracteres.",
       );
 
@@ -221,34 +280,40 @@ export function initContactForm() {
 
     if (value.length > 120) {
       setFieldError(
-        fields.subject,
+        contactSubject,
+        contactSubjectError,
         "El asunto no puede superar los 120 caracteres.",
       );
 
       return false;
     }
 
-    setFieldValid(fields.subject);
+    setFieldValid(contactSubject, contactSubjectError);
 
     return true;
-  };
+  }
 
-  /* ========================================================
-     VALIDATE MESSAGE
-  ======================================================== */
+  /* ==========================================================
+     VALIDATION - MESSAGE
+  ========================================================== */
 
-  const validateMessage = () => {
-    const value = fields.message.input.value.trim();
+  function validateMessage() {
+    const value = contactMessage.value.trim();
 
     if (!value) {
-      setFieldError(fields.message, "Escribe un mensaje.");
+      setFieldError(
+        contactMessage,
+        contactMessageError,
+        "El mensaje es obligatorio.",
+      );
 
       return false;
     }
 
     if (value.length < 10) {
       setFieldError(
-        fields.message,
+        contactMessage,
+        contactMessageError,
         "El mensaje debe tener al menos 10 caracteres.",
       );
 
@@ -257,88 +322,99 @@ export function initContactForm() {
 
     if (value.length > 1000) {
       setFieldError(
-        fields.message,
+        contactMessage,
+        contactMessageError,
         "El mensaje no puede superar los 1000 caracteres.",
       );
 
       return false;
     }
 
-    setFieldValid(fields.message);
+    setFieldValid(contactMessage, contactMessageError);
 
     return true;
-  };
+  }
 
-  /* ========================================================
-     VALIDATE ALL
-  ======================================================== */
+  /* ==========================================================
+     VALIDATE FORM
+  ========================================================== */
 
-  const validateForm = () => {
-    const isNameValid = validateName();
-    const isEmailValid = validateEmail();
-    const isSubjectValid = validateSubject();
-    const isMessageValid = validateMessage();
+  function validateForm() {
+    const nameValid = validateName();
 
-    return isNameValid && isEmailValid && isSubjectValid && isMessageValid;
-  };
+    const emailValid = validateEmail();
 
-  /* ========================================================
-     FIELD EVENTS
-  ======================================================== */
+    const subjectValid = validateSubject();
 
-  fields.name.input.addEventListener("blur", validateName);
+    const messageValid = validateMessage();
 
-  fields.email.input.addEventListener("blur", validateEmail);
+    return nameValid && emailValid && subjectValid && messageValid;
+  }
 
-  fields.subject.input.addEventListener("blur", validateSubject);
+  /* ==========================================================
+     BLUR VALIDATION
+  ========================================================== */
 
-  fields.message.input.addEventListener("blur", validateMessage);
+  contactName.addEventListener("blur", validateName);
 
-  /*
-   * Mientras el usuario corrige un campo que ya mostró
-   * un error, volvemos a validarlo al escribir.
-   */
-  Object.values(fields).forEach((field) => {
-    field.input.addEventListener("input", () => {
-      if (field.input.classList.contains("is-invalid")) {
-        switch (field.input.id) {
-          case "contact-name":
-            validateName();
-            break;
+  contactEmail.addEventListener("blur", validateEmail);
 
-          case "contact-email":
-            validateEmail();
-            break;
+  contactSubject.addEventListener("blur", validateSubject);
 
-          case "contact-subject":
-            validateSubject();
-            break;
+  contactMessage.addEventListener("blur", validateMessage);
 
-          case "contact-message":
-            validateMessage();
-            break;
+  /* ==========================================================
+     LIVE VALIDATION AFTER ERROR
+  ========================================================== */
 
-          default:
-            break;
-        }
-      }
-    });
+  contactName.addEventListener("input", () => {
+    if (contactName.classList.contains("is-invalid")) {
+      validateName();
+    }
   });
 
-  /* ========================================================
+  contactEmail.addEventListener("input", () => {
+    if (contactEmail.classList.contains("is-invalid")) {
+      validateEmail();
+    }
+  });
+
+  contactSubject.addEventListener("input", () => {
+    if (contactSubject.classList.contains("is-invalid")) {
+      validateSubject();
+    }
+  });
+
+  contactMessage.addEventListener("input", () => {
+    if (contactMessage.classList.contains("is-invalid")) {
+      validateMessage();
+    }
+  });
+
+  /* ==========================================================
      CLOSE ALERT
-  ======================================================== */
+  ========================================================== */
+
+  contactAlertClose.innerHTML = CLOSE_ICON;
 
   contactAlertClose.addEventListener("click", hideAlert);
 
-  /* ========================================================
+  /* ==========================================================
      SUBMIT
-  ======================================================== */
+  ========================================================== */
 
   contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    if (contactSubmit.disabled) {
+      return;
+    }
+
     hideAlert();
+
+    /* --------------------------------------------------------
+         VALIDATE
+      -------------------------------------------------------- */
 
     if (!validateForm()) {
       const firstInvalidField = contactForm.querySelector(
@@ -350,58 +426,112 @@ export function initContactForm() {
       return;
     }
 
-    submitButton.disabled = true;
+    /* --------------------------------------------------------
+         LOADING STATE
+      -------------------------------------------------------- */
 
-    if (submitText) {
-      submitText.textContent = "Enviando...";
-    }
+    contactSubmit.disabled = true;
 
-    if (submitIcon) {
-      submitIcon.className = "fa-solid fa-spinner fa-spin";
-    }
+    contactSubmit.innerHTML = `
+        <span
+          class="spinner-border spinner-border-sm"
+          aria-hidden="true"
+        ></span>
+        <span>Enviando...</span>
+      `;
+
+    const controller = new AbortController();
+
+    const timeoutId = setTimeout(() => {
+      controller.abort();
+    }, 10000);
 
     try {
+      /* ------------------------------------------------------
+           SEND
+        ------------------------------------------------------ */
+
       const formData = new FormData(contactForm);
 
       const response = await fetch(contactForm.action, {
         method: "POST",
         body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        signal: controller.signal,
       });
 
-      const data = await response.json();
+      clearTimeout(timeoutId);
 
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || "No se pudo enviar el mensaje.");
+      /* ------------------------------------------------------
+           RESPONSE
+        ------------------------------------------------------ */
+
+      if (!response.ok) {
+        throw new Error("No se pudo enviar el mensaje.");
       }
+
+      let result = null;
+
+      const contentType = response.headers.get("content-type") || "";
+
+      if (contentType.includes("application/json")) {
+        result = await response.json();
+      }
+
+      /* ------------------------------------------------------
+           WEB3FORMS ERROR
+        ------------------------------------------------------ */
+
+      if (result && result.success === false) {
+        throw new Error(result.message || "No se pudo enviar el mensaje.");
+      }
+
+      /* ------------------------------------------------------
+           SUCCESS
+        ------------------------------------------------------ */
+
+      showAlert(
+        "success",
+        "Mensaje enviado",
+        "Gracias por contactarme. Te responderé pronto.",
+      );
 
       contactForm.reset();
 
-      Object.values(fields).forEach(resetFieldState);
+      clearFieldState(contactName, contactNameError);
 
-      showAlert(
-        "Mensaje enviado",
-        "Gracias por contactarme. Te responderé pronto.",
-        "success",
-      );
-    } catch {
-      showAlert(
-        "No se pudo enviar",
-        "Ocurrió un problema al enviar el mensaje. Inténtalo nuevamente.",
-        "error",
-      );
+      clearFieldState(contactEmail, contactEmailError);
+
+      clearFieldState(contactSubject, contactSubjectError);
+
+      clearFieldState(contactMessage, contactMessageError);
+    } catch (error) {
+      clearTimeout(timeoutId);
+
+      if (error.name === "AbortError") {
+        showAlert(
+          "error",
+          "Tiempo de espera agotado",
+          "No se recibió respuesta del servidor. Inténtalo nuevamente.",
+        );
+      } else {
+        showAlert(
+          "error",
+          "No se pudo enviar",
+          "Ocurrió un error al enviar el mensaje. Inténtalo nuevamente.",
+        );
+      }
     } finally {
-      submitButton.disabled = false;
+      /* ------------------------------------------------------
+           ALWAYS RESTORE BUTTON
+        ------------------------------------------------------ */
 
-      if (submitText) {
-        submitText.textContent = "Enviar mensaje";
-      }
+      clearTimeout(timeoutId);
 
-      if (submitIcon) {
-        submitIcon.className = "fa-solid fa-paper-plane";
-      }
+      contactSubmit.disabled = false;
+
+      contactSubmit.innerHTML = originalButtonContent;
     }
   });
 }
+
+initContactForm();

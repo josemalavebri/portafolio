@@ -194,28 +194,29 @@
 /* ==========================================================
    DETAILS BUTTON
 ========================================================== */
-
 .experience-toggle {
   display: inline-flex;
   align-items: center;
-
   gap: 8px;
   padding: 0;
-
   border: 0;
-
   color: var(--color-brand);
-
   font-size: 0.85rem;
   font-weight: 600;
-
   text-decoration: none;
 
-  transition: color var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .experience-toggle:hover {
   color: var(--color-brand-dark);
+  transform: translateY(-1px);
+}
+
+.experience-toggle:active {
+  transform: translateY(0);
 }
 
 .experience-toggle i {
@@ -224,13 +225,29 @@
   transition: transform var(--transition-fast);
 }
 
-.experience-toggle:hover i {
-  transform: translateX(2px);
+.experience-toggle:hover i,
+.experience-toggle:focus-visible i {
+  transform: translateX(4px);
 }
 
 .experience-toggle:focus-visible {
   outline: 2px solid var(--color-brand);
   outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-toggle,
+  .experience-toggle i {
+    transition: none;
+  }
+
+  .experience-toggle:hover {
+    transform: none;
+  }
+
+  .experience-toggle:hover i {
+    transform: none;
+  }
 }
 
 /* ==========================================================

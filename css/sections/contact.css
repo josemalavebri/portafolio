@@ -369,26 +369,31 @@ a.contact-link:hover .contact-link-arrow {
 ========================================================== */
 
 .contact-alert {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1055;
+
   display: flex;
   align-items: center;
-
   gap: 12px;
 
-  margin-bottom: 18px;
-  padding: 11px 13px;
+  width: min(420px, calc(100vw - 32px));
+  margin: 0;
+  padding: 12px 14px;
 
   border: 1px solid var(--color-border);
   border-left: 3px solid var(--color-success);
   border-radius: var(--radius-md);
 
-  background: var(--color-bg-soft);
+  background: var(--color-bg);
   color: var(--color-text);
 
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-lg);
 
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-6px);
+  transform: translateY(-10px);
 
   transition:
     opacity var(--transition-base),
@@ -405,6 +410,11 @@ a.contact-link:hover .contact-link-arrow {
 /* ==========================================================
    ICON
 ========================================================== */
+
+.contact-alert-icon svg {
+  width: 24px;
+  height: 24px;
+}
 
 .contact-alert-icon {
   display: inline-flex;
@@ -561,4 +571,14 @@ a.contact-link:hover .contact-link-arrow {
 .contact-form-wrapper .form-control.is-valid:focus {
   border-color: var(--color-success);
   box-shadow: 0 0 0 3px rgb(16 124 16 / 0.1);
+}
+
+@media (max-width: 575.98px) {
+  .contact-alert {
+    top: 16px;
+    right: 16px;
+    left: 16px;
+
+    width: auto;
+  }
 }

@@ -4,16 +4,27 @@
   border-radius: var(--radius-sm);
   font-size: 0.9rem;
   font-weight: 600;
+
   transition:
     background-color 0.2s ease,
     border-color 0.2s ease,
     color 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
+
+.btn:active {
+  transform: translateY(0);
+  transition-duration: 0.1s;
+}
+
+/* ========================================
+   PRIMARY
+======================================== */
 
 .btn-primary {
   border-color: var(--color-brand);
@@ -22,35 +33,66 @@
 }
 
 .btn-primary:hover,
-.btn-primary:focus {
+.btn-primary:focus-visible {
   border-color: var(--color-brand-dark);
   background: var(--color-brand-dark);
   color: #ffffff;
+
+  box-shadow: 0 6px 16px rgba(0, 103, 184, 0.18);
 }
+
+/* ========================================
+   OUTLINE
+======================================== */
 
 .btn-outline-primary {
   border-color: var(--color-brand);
   color: var(--color-brand);
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .btn-outline-primary:hover,
-.btn-outline-primary:focus {
+.btn-outline-primary:focus-visible {
   border-color: var(--color-brand);
   background: var(--color-brand-light);
   color: var(--color-brand-dark);
+
+  box-shadow: 0 5px 14px rgba(0, 103, 184, 0.12);
 }
+
+/* ========================================
+   LINK
+======================================== */
 
 .btn-link {
   color: var(--color-brand);
   font-weight: 600;
   text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
 }
 
-.btn-link:hover {
+.btn-link:hover,
+.btn-link:focus-visible {
   color: var(--color-brand-dark);
 }
 
 .btn-link i {
   margin-left: 6px;
   font-size: 0.8rem;
+
+  transition: transform 0.2s ease;
+}
+
+.btn-link:hover i,
+.btn-link:focus-visible i {
+  transform: translateX(3px);
 }

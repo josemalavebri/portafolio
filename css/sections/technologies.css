@@ -299,6 +299,26 @@
   transition: transform var(--transition-fast);
 }
 
+.technology-item svg {
+  width: 18px;
+  height: 18px;
+
+  flex: 0 0 auto;
+
+  object-fit: contain;
+
+  transition: transform var(--transition-fast);
+}
+
+.technology-item svg {
+  flex: 0 0 auto;
+
+  font-size: 0.9rem;
+
+  transition: transform var(--transition-fast);
+}
+
+
 .technology-item i {
   flex: 0 0 auto;
 
@@ -308,6 +328,7 @@
 }
 
 .technology-item:hover img,
+.technology-item:hover svg,
 .technology-item:hover i {
   transform: scale(1.08);
 }
